@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {NgbCarouselConfig} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-carousel',
@@ -7,7 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CarouselComponent implements OnInit {
 
-  constructor() { }
+  images = [1, 2, 3, 4].map(() => `https://picsum.photos/1120/560?random&t=${Math.random()}`);
+
+  constructor(config: NgbCarouselConfig) {
+    // customize default values of carousels used by this component tree
+    config.interval = 3000;
+    config.wrap = false;
+    config.keyboard = false;
+    config.pauseOnHover = false;
+  }
 
   ngOnInit() {
   }

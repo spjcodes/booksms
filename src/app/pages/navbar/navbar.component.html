@@ -1,3 +1,76 @@
-<p>
-  navbar works!
-</p>
+<nav class="navbar navbar-expand-lg   navbar-dark bg-dark">
+
+  <a class="navbar-brand" href="#">
+    <nav class="navbar navbar-light bg-dark">
+      <a class="navbar-brand" href="#">
+        <img src="" width="30" height="30" class="d-inline-block align-top" alt="">
+        Bootstrap
+      </a>
+    </nav>
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item ">
+        <a class="nav-link active" href="#">首页 <span class="sr-only">(current)</span></a>
+      </li>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          小说
+        </a>
+
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">现当代小说</a>
+          <a class="dropdown-item" href="#">古典小说</a>
+          <a class="dropdown-item" href="#">侦探、推理、悬疑小说</a>
+          <a class="dropdown-item" href="#">武侠小说</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">其他</a>
+        </div>
+      </li>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbar Dropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          大学教材
+        </a>
+
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">大一</a>
+          <a class="dropdown-item" href="#">大二</a>
+          <a class="dropdown-item" href="#">大三</a>
+          <a class="dropdown-item" href="#">大四</a>
+        </div>
+      </li>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          管理
+        </a>
+
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" >用户管理</a>
+          <!--<a class="dropdown-item" href="#">Another action</a>-->
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" [routerLink]="['adminmanage']">管理员管理</a>
+        </div>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link " href="#" tabindex="-1" aria-disabled="true">其他书籍</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link " href="#" tabindex="-1" aria-disabled="true">登陆/注册</a>
+      </li>
+    </ul>
+
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="请输入搜索内容..." aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">搜索</button>
+    </form>
+  </div>
+</nav>

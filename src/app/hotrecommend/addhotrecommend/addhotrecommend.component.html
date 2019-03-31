@@ -1,0 +1,35 @@
+<div class="card text-center">
+
+  <div class="card-header">
+    <span  class= " glyphicon glyphicon-chevron-left"></span>
+    热卖商品编辑
+  </div>
+  <div class="card-body">
+    <form >
+      <input  [(ngModel)]="hotrecommend.hname" name="hname" class="form-control form-control-lg martop" type="text" placeholder="书名">
+      <input  [(ngModel)]="hotrecommend.hintro" name="hintro"  class="form-control form-control-lg martop" type="text" placeholder="简介">
+
+      <div class="input-group mb-3 input-group-lg">
+        <div class="custom-file ">
+          <input type="file" class="custom-file-input input-group-lg" id="inputGroupFile02">
+          <label class="custom-file-label input-group-lg" for="inputGroupFile02" aria-describedby="inputGroupFileAddon02">选择封面图片</label>
+        </div>
+        <div class="input-group-append">
+          <span class="input-group-text" id="inputGroupFileAddon02">Upload</span>
+        </div>
+      </div>
+
+      <input  [(ngModel)]="hotrecommend.hstar" name="hstar"  class="form-control form-control-lg martop" type="text" placeholder="星数">
+    </form>
+
+    <div >
+      <button class="btn btn-primary" (click)="save(hotrecommend)">提交</button>
+      <button class="btn btn-danger" (click)="reset()" >重置</button>
+    </div>
+
+  </div>
+
+  <div class="card-footer text-muted">
+   admin
+  </div>
+</div>
