@@ -1,3 +1,59 @@
-<p>
-  usermanage works!
-</p>
+<div class="container">
+  <div class="card" style="width:100%;">
+    <div class="card-header">
+      <button  class="btn btn-primary" (click)="add()">新增</button>
+      <span  style="text-align:center;width:100%;margin-left: 40%;">轮播区管理</span>
+    </div>
+    <table  class="table table-striped">
+      <tr >
+        <td>主键</td>
+        <td>用户名</td>
+        <td>角色</td>
+        <td>密码</td>
+        <td>手机号</td>
+        <td>积分</td>
+        <td>等级</td>
+        <td>地址</td>
+        <td>操作</td>
+      </tr>
+      <tr *ngFor="let u of users ">
+        <td >
+          {{u.uid}}
+        </td>
+        <td >
+          {{u.username}}
+        </td>
+        <td >
+          {{u.urole}}
+        </td>
+        <td >
+          {{u.upwd}}
+        </td>
+        <td >
+          {{u.udiscounts}}
+        </td>
+        <td >
+          {{u.ugrade}}
+        </td>
+        <td >
+          {{u.uaddress}}
+        </td>
+        <td>
+          <button class="btn btn-warning" (click)="update(u.uid)">修改</button>
+          <button class="btn btn-danger" (click)="delete(u.uid)">删除</button>
+          <button class="btn btn-info" (click)="detail(u.uid)">预览</button>
+        </td>
+      </tr>
+    </table>
+
+    <nav aria-label="Page navigation example" style="float:right; margin:0px;padding: 0px;">
+      <ul class="pagination" style="float: right;">
+        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+      </ul>
+    </nav>
+  </div>
+</div>

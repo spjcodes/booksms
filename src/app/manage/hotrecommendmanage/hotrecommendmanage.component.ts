@@ -44,4 +44,8 @@ export class HotrecommendmanageComponent implements OnInit {
       }
     })
   }
+
+  detail(hid: string) {
+    this.router.navigate(['detailhotrecommed', hid]);
+  }
 }

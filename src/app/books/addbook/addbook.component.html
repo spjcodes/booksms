@@ -1,0 +1,69 @@
+<div class="card text-center">
+
+  <div class="card-header">
+    <span  class= " glyphicon glyphicon-chevron-left"></span>
+    小说类编辑
+  </div>
+  <div class="card-body">
+    <form >
+      <input  [(ngModel)]="book.bname" name="bname" class="form-control form-control-lg martop" type="text"
+              placeholder="书名">
+      <input  [(ngModel)]="book.bintro" name="bintro"  class="form-control form-control-lg martop" type="text"
+              placeholder="简介">
+
+      <div class="input-group mb-3 input-group-lg">
+        <div class="custom-file ">
+          <input type="file" class="custom-file-input input-group-lg" id="inputGroupFile02">
+          <label class="custom-file-label input-group-lg" for="inputGroupFile02"
+                 aria-describedby="inputGroupFileAddon02">
+            选择封面图片
+          </label>
+        </div>
+        <div class="input-group-append">
+          <span class="input-group-text" id="inputGroupFileAddon02">Upload</span>
+        </div>
+      </div>
+
+      <div class="input-group mb-3">
+        <select class="custom-select" [ngModel]="book.btype" name="btype" id="inputGroupSelect02">
+          <option selected>现当代小说</option>
+          <option value="1">古典小说</option>
+          <option value="2">侦探,推理,悬疑小说</option>
+          <option value="3">武侠小说</option>
+          <option value="4">科幻小说</option>
+          <option value="5">其他</option>
+        </select>
+        <div class="input-group-append">
+          <label class="input-group-text"
+                 placeholder="类型" for="inputGroupSelect02">选择</label>
+        </div>
+        <p>safsfss
+          {{book.btype}}
+        </p>
+
+      </div>
+
+      <input  [(ngModel)]="book.bauthor" name="bauthor" class="form-control form-control-lg martop" type="text"
+              placeholder="作者">
+      <input  [(ngModel)]="book.bversion" name="bversion" class="form-control form-control-lg martop" type="text"
+              placeholder="版本号">
+      <input  [(ngModel)]="book.boldcost" name="boldcost" class="form-control form-control-lg martop" type="text"
+              placeholder="原件">
+      <input  [(ngModel)]="book.bnewcost" name="bnewcost" class="form-control form-control-lg martop" type="text"
+              placeholder="现价">
+      <input  [(ngModel)]="book.bstar" name="bstar"  class="form-control form-control-lg martop" type="text"
+              placeholder="推荐星数">
+
+    </form>
+
+    <div >
+      <button class="btn btn-primary" (click)="save(book)">提交</button>
+      <button class="btn btn-danger" (click)="reset()" >重置</button>
+    </div>
+
+  </div>
+
+  <div class="card-footer text-muted">
+    admin
+  </div>
+</div>

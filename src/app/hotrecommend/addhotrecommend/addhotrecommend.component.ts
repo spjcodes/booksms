@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {HotrecommendService} from '../../services/hotrecommend.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Hotrecommend} from '../../model/hotrecommend';
-import {v} from '@angular/core/src/render3';
+import {b, v} from '@angular/core/src/render3';
 
 @Component({
   selector: 'app-addhotrecommend',
@@ -32,9 +32,21 @@ export class AddhotrecommendComponent implements OnInit {
   save(value: any) {
     console.dir(value);
     if (this.parm === 'add') {
-      this.hotservice.addHotrecomment(value);
+      this.hotservice.addHotrecomment(value).then((flage: boolean) => {
+        if (flage) {
+          this.router.navigate(['adminmanage/hotrecom']);
+        } else {
+          alert('添加失败！');
+        }
+      });
     } else {
-      this.hotservice.updateHotrecommend(value);
+      this.hotservice.updateHotrecommend(value).then((flage: boolean) => {
+        if (flage) {
+          this.router.navigate(['adminmanage/hotrecom']);
+        } else {
+          alert('添加失败！');
+        }
+      });
     }
 
   }

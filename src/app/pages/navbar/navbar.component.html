@@ -15,39 +15,46 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item ">
-        <a class="nav-link active" href="#">首页 <span class="sr-only">(current)</span></a>
+        <a class="nav-link active" [routerLink]="['pageone']" >首页 <span class="sr-only">(current)</span></a>
       </li>
 
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           小说
         </a>
-
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">现当代小说</a>
-          <a class="dropdown-item" href="#">古典小说</a>
-          <a class="dropdown-item" href="#">侦探、推理、悬疑小说</a>
-          <a class="dropdown-item" href="#">武侠小说</a>
+          <a class="dropdown-item" [routerLink]="['novelbooks', 'modern']">现当代小说</a>
+          <a class="dropdown-item" [routerLink]="['novelbooks', 'classical']">古典小说</a>
+          <a class="dropdown-item" [routerLink]="['novelbooks', 'detective']">侦探、推理、悬疑小说</a>
+          <a class="dropdown-item" [routerLink]="['novelbooks', 'gongfu']">武侠小说</a>
+          <a class="dropdown-item" [routerLink]="['novelbooks', 'science']">科幻</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">其他</a>
+          <a class="dropdown-item" [routerLink]="['novelbooks', 'other']">其他</a>
         </div>
       </li>
 
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbar Dropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link dropdown-toggle"  id="navbar Dropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           大学教材
         </a>
-
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">大一</a>
-          <a class="dropdown-item" href="#">大二</a>
-          <a class="dropdown-item" href="#">大三</a>
-          <a class="dropdown-item" href="#">大四</a>
+          <a class="dropdown-item" [routerLink]="['textbooks', 'financial']">财务会计教育</a>
+          <a class="dropdown-item" [routerLink]="['textbooks', 'advertising']">广告学</a>
+          <a class="dropdown-item" [routerLink]="['textbooks', 'pubmanser']">公共事业管理</a>
+          <a class="dropdown-item" [routerLink]="['textbooks', 'businessadmin']">工商管理类</a>
+          <a class="dropdown-item" [routerLink]="['textbooks', 'chinlanlite']">汉语言文学</a>
+          <a class="dropdown-item" [routerLink]="['textbooks', 'inteeducninalean']">汉语国际教育</a>
+          <a class="dropdown-item" [routerLink]="['textbooks', 'computer']">计算机类</a>
+          <a class="dropdown-item" [routerLink]="['textbooks', 'toumanagement']">旅游管理</a>
+          <a class="dropdown-item" [routerLink]="['textbooks', 'laolanguange']">老挝语</a>
+          <a class="dropdown-item" [routerLink]="['textbooks', 'secrescien']">秘书学</a>
+          <a class="dropdown-item" [routerLink]="['textbooks', 'marketing']">市场营销</a>
+          <a class="dropdown-item" [routerLink]="['textbooks', 'humanresource']">人力资源管理</a>
         </div>
       </li>
 
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           管理
         </a>
 
@@ -60,7 +67,11 @@
       </li>
 
       <li class="nav-item">
-        <a class="nav-link " href="#" tabindex="-1" aria-disabled="true">其他书籍</a>
+        <a class="nav-link " [routerLink]="['textbooks', 'otherbooks']"  tabindex="-1" aria-disabled="true">其他书籍</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link " href="#" tabindex="-1" aria-disabled="true">共享图书</a>
       </li>
 
       <li class="nav-item">

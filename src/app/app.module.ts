@@ -24,12 +24,44 @@ import { HttpClientModule} from '@angular/common/http';
 import { HotrecommendmanageComponent } from './manage/hotrecommendmanage/hotrecommendmanage.component';
 import { RouterModule, Routes } from '@angular/router';
 import { ListhotrecommendComponent } from './hotrecommend/listhotrecommend/listhotrecommend.component';
+import { PageoneComponent } from './index/pageone/pageone.component';
+import {CarouselmanageService} from './services/carouselmanage.service';
+import { DetailhotrecommendComponent } from './hotrecommend/detailhotrecommend/detailhotrecommend.component';
+import { NovelmanageComponent } from './manage/novelmanage/novelmanage.component';
+import { TextbookmanageComponent } from './manage/textbookmanage/textbookmanage.component';
+import { OtherbookmanageComponent } from './manage/otherbookmanage/otherbookmanage.component';
+import { AddbookComponent } from './books/addbook/addbook.component';
+import { DetailbookComponent } from './books/detailbook/detailbook.component';
+import {BookmanageService} from './services/bookmanage.service';
+import {UsermanageService} from './services/usermanage.service';
+import { NovelbooksComponent } from './books/novelbooks/novelbooks.component';
+import { TextbooksComponent } from './books/textbooks/textbooks.component';
+import { OtherbooksComponent } from './books/otherbooks/otherbooks.component';
 
 
 export const ROUTES: Routes = [
   {path: 'hotrecommendManage', component: HotrecommendmanageComponent},
   {path: 'addHorrecommend/:id', component: AddhotrecommendComponent},
-  {path: 'adminmanage', component: AdminmanageComponent},
+  {path: 'detailhotrecommed/:id', component: DetailhotrecommendComponent},
+  {path: 'adminmanage', component: AdminmanageComponent,
+    children: [
+      {path: '' , component: AdminmanageComponent},
+      {path: 'hotrecom', component: HotrecommendmanageComponent },
+      {path: 'carouselmanage', component: CarouselmanageComponent},
+      {path: 'bookmanage', component: NovelmanageComponent},
+      {path: 'usermanage', component: UsermanageComponent},
+    ]
+  },
+  {path: 'pageone', component: PageoneComponent},
+  {path: 'addcarousel/:id', component: AddcarosuelComponent},
+  {path: 'detailcarousel/:id', component: DetailcarouselComponent},
+  {path: 'addbook/:id', component: AddbookComponent},
+  {path: 'detailbook/:id', component: DetailbookComponent},
+  {path: 'adduser/:id', component: AdduserComponent},
+  {path: 'novelbooks/:id', component: NovelbooksComponent},
+  {path: 'textbooks/:id', component: TextbooksComponent},
+  {path: 'otherbooks/:id', component: OtherbooksComponent},
+
 
 ]
 @NgModule({
@@ -51,7 +83,17 @@ export const ROUTES: Routes = [
     DetailcarouselComponent,
     AddhotrecommendComponent,
     HotrecommendmanageComponent,
-    ListhotrecommendComponent
+    ListhotrecommendComponent,
+    PageoneComponent,
+    DetailhotrecommendComponent,
+    NovelmanageComponent,
+    TextbookmanageComponent,
+    OtherbookmanageComponent,
+    AddbookComponent,
+    DetailbookComponent,
+    NovelbooksComponent,
+    TextbooksComponent,
+    OtherbooksComponent,
   ],
   imports: [
     BrowserModule,
@@ -69,6 +111,9 @@ export const ROUTES: Routes = [
     NgbCarouselConfig,
     HotrecommendService,
     ConfigserviceService,
+    CarouselmanageService,
+    BookmanageService,
+    UsermanageService,
   ],
   bootstrap: [AppComponent]
 })

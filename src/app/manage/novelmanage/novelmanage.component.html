@@ -2,33 +2,48 @@
   <div class="card" style="width: 100%;">
     <div class="card-header">
       <button  class="btn btn-primary" (click)="add()">新增</button>
-      <span  style="text-align:center;width:100%;margin-left: 40%;">热卖管理</span>
+      <span  style="text-align:center;width:100%;margin-left: 40%;">书籍管理</span>
     </div>
     <table  class="table table-striped">
       <tr >
         <td>主键</td>
+        <td>类型</td>
         <td>名称</td>
-        <td>简介</td>
+        <td>版本号</td>
         <td>封面图</td>
+        <td>简介</td>
+        <td>作者</td>
+        <td>原价</td>
+        <td>现价</td>
         <td>星数</td>
         <td>操作</td>
       </tr>
-      <tr *ngFor="let h of hotrecommends">
+      <tr *ngFor="let n of novels">
         <td >
-          {{h.hid}}
+          {{n.bid}}
         </td><td >
-          {{h.hname}}
-        </td><td >
-          {{h.hintro}}
-        </td><td >
-          {{h.himage}}
-        </td><td >
-          {{h.hstar}}
-        </td>
+        {{n.btype}}
+      </td><td >
+        {{n.bname}}
+      </td><td >
+        {{n.bversion}}
+      </td><td >
+        {{n.bimage}}
+      </td><td >
+        {{n.bintro}}
+      </td><td >
+        {{n.bauthor}}
+      </td><td >
+        {{n.boldcost}}
+      </td><td >
+        {{n.bnewcost}}
+      </td><td >
+        {{n.bstar}}
+      </td>
         <td>
-          <button class="btn btn-warning" (click)="update(h.hid)">修改</button>
-          <button class="btn btn-danger" (click)="delete(h.hid)">删除</button>
-          <button class="btn btn-info" (click)="detail(h.hid)">预览</button>
+          <button class="btn btn-warning" (click)="update(n.bid)">修改</button>
+          <button class="btn btn-danger" (click)="delete(n.bid)">删除</button>
+          <button class="btn btn-info" (click)="detail(n.bid)">预览</button>
         </td>
       </tr>
     </table>

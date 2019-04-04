@@ -1,3 +1,46 @@
-<p>
-  carouselmanage works!
-</p>
+<div class="container">
+  <div class="card" style="width:100%;">
+    <div class="card-header">
+      <button  class="btn btn-primary" (click)="add()">新增</button>
+      <span  style="text-align:center;width:100%;margin-left: 40%;">轮播区管理</span>
+    </div>
+    <table  class="table table-striped">
+      <tr >
+        <td>主键</td>
+        <td>名称</td>
+        <td>简介</td>
+        <td>内容</td>
+        <td>操作</td>
+      </tr>
+      <tr *ngFor="let c of carousels ">
+        <td >
+          {{c.cid}}
+        </td>
+        <td >
+        {{c.cname}}
+      </td>
+        <td >
+        {{c.cintro}}
+      </td>
+        <td >
+        {{c.ccontent}}
+      </td>
+        <td>
+          <button class="btn btn-warning" (click)="update(c)">修改</button>
+          <button class="btn btn-danger" (click)="delete(c.cid)">删除</button>
+          <button class="btn btn-info" (click)="detail(c.cid)">预览</button>
+        </td>
+      </tr>
+    </table>
+
+    <nav aria-label="Page navigation example" style="float:right; margin:0px;padding: 0px;">
+      <ul class="pagination" style="float: right;">
+        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+      </ul>
+    </nav>
+  </div>
+</div>

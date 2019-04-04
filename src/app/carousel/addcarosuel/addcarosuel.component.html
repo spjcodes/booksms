@@ -1,3 +1,40 @@
-<p>
-  addcarosuel works!
-</p>
+<div class="card text-center">
+
+  <div class="card-header">
+    <span  class= " glyphicon glyphicon-chevron-left"></span>
+    轮播区编辑
+  </div>
+  <div class="card-body">
+    <form >
+      <input  [(ngModel)]="carousel.cname"  name="cname"  class="form-control form-control-lg martop"
+              type="text" placeholder="书名">
+      <input  [(ngModel)]="carousel.cintro"  name="cintro"  class="form-control form-control-lg martop"
+              type="text" placeholder="简介">
+
+      <div class="input-group mb-3 input-group-lg">
+        <div class="custom-file ">
+          <input type="file" class="custom-file-input input-group-lg" id="inputGroupFile02">
+          <label class="custom-file-label input-group-lg" for="inputGroupFile02"
+                 aria-describedby="inputGroupFileAddon02">选择图片
+          </label>
+        </div>
+        <div class="input-group-append">
+          <span class="input-group-text" id="inputGroupFileAddon02">Upload</span>
+        </div>
+      </div>
+
+      <input  [(ngModel)]="carousel.ccontent"  name="ccontent"  class="form-control form-control-lg martop"
+              type="text" placeholder="内容">
+    </form>
+
+    <div >
+      <button class="btn btn-primary" (click)="save(carousel)">提交</button>
+      <button class="btn btn-danger" (click)="reset()" >重置</button>
+    </div>
+
+  </div>
+
+  <div class="card-footer text-muted">
+    admin
+  </div>
+</div>
