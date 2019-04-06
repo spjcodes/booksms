@@ -24,11 +24,12 @@
         </div>
       </div>
 
+      <!-- [ngModel]="book.btype" name="btype" -->
       <div class="input-group mb-3">
-        <select class="custom-select" [ngModel]="book.btype" name="btype" id="inputGroupSelect02">
-          <option selected>现当代小说</option>
-          <option value="1">古典小说</option>
-          <option value="2">侦探,推理,悬疑小说</option>
+        <select (change)="onchange($event.target.value)" class="custom-select"  id="inputGroupSelect02">
+            <option selected>{{book.btype}}</option>
+            <option value="0">古典小说</option>
+            <option value="2">侦探,推理,悬疑小说</option>
           <option value="3">武侠小说</option>
           <option value="4">科幻小说</option>
           <option value="5">其他</option>
@@ -37,9 +38,6 @@
           <label class="input-group-text"
                  placeholder="类型" for="inputGroupSelect02">选择</label>
         </div>
-        <p>safsfss
-          {{book.btype}}
-        </p>
 
       </div>
 

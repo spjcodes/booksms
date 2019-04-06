@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Book} from '../../model/book';
-import {ActivatedRoute, Router} from '@angular/router';
+import {ActivatedRoute, Router, Params} from '@angular/router';
 import {BookmanageService} from '../../services/bookmanage.service';
 
 @Component({
@@ -19,14 +19,20 @@ export class NovelbooksComponent implements OnInit {
               private bookService: BookmanageService) { }
 
   ngOnInit() {
+    this.routerInfo.params.subscribe((params:Params) => {
+      this.parm = params["id"]
+    });
+    // this.routerInfo.params.subscribe((params: Params) => this.parm = params['id']);
+    console.dir(this.parm);
     this.getBooks();
   }
 
   private getBooks() {
-    this.parm = this.routerInfo.snapshot.params['id'];
+   
+    // this.parm = this.routerInfo.snapshot.params['id'];
     switch (this.parm) {
       case 'modern' :
-        this.type = '现当代小说'; break;
+        this.type = '现当代小说';  break;
       case 'classical' :
         this.type = '经典小说'; break;
       case 'detective' :

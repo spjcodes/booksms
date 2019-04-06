@@ -13,6 +13,7 @@ export class AddbookComponent implements OnInit {
   parm: string;
   book: Book;
   books: Array<Book>;
+  types: any;
   constructor(private bookService: BookmanageService,
               private router: Router,
               private routeInfo: ActivatedRoute,
@@ -21,6 +22,13 @@ export class AddbookComponent implements OnInit {
   ngOnInit() {
     this.initBook();
   }
+
+  onchange(key: any){
+    this.book.btype = this.types[key].vlaue;
+  }
+  
+ 
+  
 
   add(book: Book) {
     this.bookService.addBook(book).then((flage: boolean) => {
@@ -34,8 +42,31 @@ export class AddbookComponent implements OnInit {
 
   private initBook() {
     this.parm = this.routeInfo.snapshot.params['id'];
-    if(this.parm === 'add') {
+    if(this.parm === 'noveladd') {
       this.book = new Book();
+      this.types = [
+        {key: "0", vlaue: "modern"},
+        {key: "1", vlaue: "classical"},
+        {key: "2", vlaue: "detective"},
+        {key: "4", vlaue: "gongfu"},
+        {key: "5", vlaue: "science"},
+        {key: "6", vlaue: "nother"},
+      ];
+    } else if (this.parm === 'textbookadd') { 
+      this.book = new Book();
+      this.types = [
+        {key: "0", vlaue: "financial"},
+        {key: "1", vlaue: "advertising"},
+        {key: "2", vlaue: "pubmanser"},
+        {key: "4", vlaue: "businessadmin"},
+        {key: "5", vlaue: "chinlanlite"},
+        {key: "6", vlaue: "computer"},
+        {key: "7", vlaue: "toumanagement"},
+        {key: "8", vlaue: "laolanguange"},
+        {key: "9", vlaue: "secrescien"},
+        {key: "10", vlaue: "marketing"},
+        {key: "11", vlaue: "humanresource"},
+      ];
     } else {
       this.getBook();
     }
@@ -72,5 +103,6 @@ export class AddbookComponent implements OnInit {
     this.book.bnewcost = null;
     this.book.bauthor = null;
     this.book.bimage = null;
+    this.book.bstar = null;
   }
 }

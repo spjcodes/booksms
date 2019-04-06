@@ -50,6 +50,8 @@ export const ROUTES: Routes = [
       {path: 'carouselmanage', component: CarouselmanageComponent},
       {path: 'bookmanage', component: NovelmanageComponent},
       {path: 'usermanage', component: UsermanageComponent},
+      {path: 'textbookmanage', component: TextbookmanageComponent},
+      {path: 'otherbookmanage', component: OtherbookmanageComponent},
     ]
   },
   {path: 'pageone', component: PageoneComponent},

@@ -22,7 +22,7 @@ export class NovelmanageComponent implements OnInit {
   }
 
   add() {
-    this.router.navigate(['addbook', 'add']);
+    this.router.navigate(['addbook', 'noveladd']);
   }
 
   update(bid: string) {
