@@ -22,6 +22,7 @@ export class BookmanageService {
       'boldcost': book.boldcost,
       'bnewcost': book.bnewcost,
       'btype': book.btype,
+      'bstype': book.bstype,
       'bstar': book.bstar
     }
     return this.http.post(this.addBookURL, p).toPromise();
@@ -64,5 +65,11 @@ export class BookmanageService {
     };
     return this.http.post(this.getBookListByTypeURL, p ).toPromise();
   }
+
+  private getBookListByBstypeURL = this.config.hsot + '/getBookListByBstype';
+  getBookListByBstype(Bstype: string){
+    return this.http.post(this.getBookListByBstypeURL, {"bstype": Bstype}).toPromise();
+  }
+
 
 }

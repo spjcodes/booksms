@@ -23,8 +23,8 @@ export class TextbooksComponent implements OnInit {
   }
 
   private getBooks() {
-    // this.parm = this.routerInfo.subscribe((parms: Params) => this.parm = parms['id']);
-      this.parm  = this.routerInfo.snapshot.params['id'];
+      // this.parm  = this.routerInfo.snapshot.params['id'];
+    this.routerInfo.params.subscribe((parms: Params) => this.parm = parms['id']);
     this.bookService.getBookListByType(this.parm).then((bs: any) => {
       if (bs != null) {
         this.books = bs;

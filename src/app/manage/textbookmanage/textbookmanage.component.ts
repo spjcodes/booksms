@@ -45,7 +45,7 @@ export class TextbookmanageComponent implements OnInit {
 
 
   private getBookList() {
-    this.bookService.getBookLsit().then((date: any) => {
+    this.bookService.getBookListByBstype('textbook').then((date: any) => {
       if (date === null) {
         console.dir('get book list faild  it is null');
       } else{

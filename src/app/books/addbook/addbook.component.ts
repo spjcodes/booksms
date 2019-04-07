@@ -14,6 +14,10 @@ export class AddbookComponent implements OnInit {
   book: Book;
   books: Array<Book>;
   types: any;
+  bookmanage: string;
+  novelishidden: boolean = true;
+  textbookishidden: boolean = true;
+  otherbookishidden: boolean = true;
   constructor(private bookService: BookmanageService,
               private router: Router,
               private routeInfo: ActivatedRoute,
@@ -21,10 +25,23 @@ export class AddbookComponent implements OnInit {
 
   ngOnInit() {
     this.initBook();
+    this.ishiddenselect();
   }
+
+  ishiddenselect(){
+    if (this.parm === 'noveladd') {
+      this.novelishidden = false;
+    } else if( this.parm === 'textbookadd') {
+      this.textbookishidden = false;
+    } else {
+      this.book.btype = 'outher'
+    }
+  }
+    
 
   onchange(key: any){
     this.book.btype = this.types[key].vlaue;
+    // this.book.bstype = 'novel';
   }
   
  
@@ -44,6 +61,8 @@ export class AddbookComponent implements OnInit {
     this.parm = this.routeInfo.snapshot.params['id'];
     if(this.parm === 'noveladd') {
       this.book = new Book();
+      this.book.bstype = 'novel';
+console.log("add novel ...." + this.book.bstype);
       this.types = [
         {key: "0", vlaue: "modern"},
         {key: "1", vlaue: "classical"},
@@ -54,6 +73,8 @@ export class AddbookComponent implements OnInit {
       ];
     } else if (this.parm === 'textbookadd') { 
       this.book = new Book();
+      this.book.bstype = 'textbook';
+console.log("add textbook ...." + this.book.bstype);
       this.types = [
         {key: "0", vlaue: "financial"},
         {key: "1", vlaue: "advertising"},
@@ -67,8 +88,24 @@ export class AddbookComponent implements OnInit {
         {key: "10", vlaue: "marketing"},
         {key: "11", vlaue: "humanresource"},
       ];
+    } else if (this.parm === "otheradd") {
+      this.book = new Book();
+      this.book.bstype = 'other';
+      this.bookmanage = "otherbookmanage";
+     alert("添加其他书籍");
     } else {
       this.getBook();
+    }
+  }
+
+  getrouter(){
+    switch(this.parm){
+      case 'noveladd':
+      this.bookmanage = 'bookmanage'; break;
+      case 'textbookadd':
+      this.bookmanage = 'textbookmanage'; break;
+      case 'otheradd':
+      this.bookmanage = 'otherbookmanage'; break;
     }
   }
 
@@ -84,11 +121,12 @@ export class AddbookComponent implements OnInit {
 
 
   save(book: Book) {
+    this.getrouter();
     this.bookService.addBook(book).then((flage: boolean) => {
       if (!flage) {
         alert('添加失败！');
       } else {
-        this.router.navigate(['/adminmanage/bookmanage']);
+        this.router.navigate(['/adminmanage/' + this.bookmanage]);
       }
     });
   }

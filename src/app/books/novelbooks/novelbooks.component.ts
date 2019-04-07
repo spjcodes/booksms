@@ -19,16 +19,12 @@ export class NovelbooksComponent implements OnInit {
               private bookService: BookmanageService) { }
 
   ngOnInit() {
-    this.routerInfo.params.subscribe((params:Params) => {
-      this.parm = params["id"]
-    });
-    // this.routerInfo.params.subscribe((params: Params) => this.parm = params['id']);
-    console.dir(this.parm);
     this.getBooks();
   }
 
   private getBooks() {
-   
+    this.routerInfo.params.subscribe((params: Params) => this.parm = params['id']);
+    console.dir(this.parm);
     // this.parm = this.routerInfo.snapshot.params['id'];
     switch (this.parm) {
       case 'modern' :

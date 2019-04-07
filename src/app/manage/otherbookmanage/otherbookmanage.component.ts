@@ -46,7 +46,7 @@ export class OtherbookmanageComponent implements OnInit {
 
 
   private getBookList() {
-    this.bookService.getBookLsit().then((date: any) => {
+    this.bookService.getBookListByBstype('other').then((date: any) => {
       if (date === null) {
         console.dir('get book list faild  it is null');
       } else{
