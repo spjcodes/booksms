@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {CarouselmanageService} from '../../services/carouselmanage.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Carousel} from '../../model/carousel';
+import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 
 @Component({
   selector: 'app-addcarosuel',
@@ -12,10 +13,12 @@ export class AddcarosuelComponent implements OnInit {
   carousel: Carousel;
   parm: string;
   config: any;
+  private selectedFile: string;
 
   constructor(private carouservice: CarouselmanageService,
               private routerinfo: ActivatedRoute,
-              private router: Router
+              private router: Router,
+              private http: HttpClient,
               ) { }
 
   ngOnInit() {
@@ -64,4 +67,22 @@ export class AddcarosuelComponent implements OnInit {
       this.carousel = c;
     });
   }
+
+  onchange(event) {
+    this.selectedFile = event.target.files[0];
+  }
+
+  onUpload() {
+    // upload code goes here
+
+    const uploadData = new FormData();
+    uploadData.append('uploadfile', this.selectedFile);
+    this.http.post('http://localhost/manage/uploadPic', uploadData).subscribe(
+      (data: any) => {
+        // alert(data);
+        console.log(JSON.stringify(data));
+      },  ( err: HttpErrorResponse) => {
+        console.log(err.message);
+      }
+    );
 }
