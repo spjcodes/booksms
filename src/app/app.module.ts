@@ -37,7 +37,8 @@ import {UsermanageService} from './services/usermanage.service';
 import { NovelbooksComponent } from './books/novelbooks/novelbooks.component';
 import { TextbooksComponent } from './books/textbooks/textbooks.component';
 import { OtherbooksComponent } from './books/otherbooks/otherbooks.component';
-
+import { CKEditorModule } from 'ng2-ckeditor';
+import { TohtmlPipe } from './pipe/tohtml.pipe';
 
 export const ROUTES: Routes = [
   {path: 'hotrecommendManage', component: HotrecommendmanageComponent},
@@ -96,6 +97,7 @@ export const ROUTES: Routes = [
     NovelbooksComponent,
     TextbooksComponent,
     OtherbooksComponent,
+    TohtmlPipe,
   ],
   imports: [
     BrowserModule,
@@ -107,6 +109,7 @@ export const ROUTES: Routes = [
     ReactiveFormsModule,
     RouterModule,
     RouterModule.forRoot(ROUTES),
+    CKEditorModule,
 
   ],
   providers: [

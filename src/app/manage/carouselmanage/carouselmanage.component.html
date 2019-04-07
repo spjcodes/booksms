@@ -23,7 +23,8 @@
         {{c.cintro}}
       </td>
         <td >
-        {{c.ccontent}}
+<!--        {{c.ccontent}}-->
+         <div [innerHTML]="c.ccontent| tohtml"></div>
       </td>
         <td>
           <button class="btn btn-warning" (click)="update(c)">修改</button>

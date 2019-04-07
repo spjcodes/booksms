@@ -11,6 +11,7 @@ import {Carousel} from '../../model/carousel';
 export class AddcarosuelComponent implements OnInit {
   carousel: Carousel;
   parm: string;
+  config: any;
 
   constructor(private carouservice: CarouselmanageService,
               private routerinfo: ActivatedRoute,

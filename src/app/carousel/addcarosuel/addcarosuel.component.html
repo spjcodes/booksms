@@ -23,8 +23,13 @@
         </div>
       </div>
 
-      <input  [(ngModel)]="carousel.ccontent"  name="ccontent"  class="form-control form-control-lg martop"
-              type="text" placeholder="内容">
+<!--      <input  [(ngModel)]="carousel.ccontent"  name="ccontent"  class="form-control form-control-lg martop"-->
+<!--              type="text" placeholder="内容">-->
+
+
+      <ckeditor  [(ngModel)]="carousel.ccontent"  name="ccontent"  debounce="500" [config]="config">
+
+      </ckeditor>
     </form>
 
     <div >
