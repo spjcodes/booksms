@@ -41,7 +41,7 @@ export class NovelbooksComponent implements OnInit {
         this.type = '其他'; break;
     }
     this.bookService.getBookListByType(this.parm).then((date: any) => {
- console.dir(date)
+ console.dir(date);
       if (date !== null) {
         this.books = date;
       } else {

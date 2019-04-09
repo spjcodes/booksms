@@ -10,6 +10,15 @@ export class UsermanageService {
               private http: HttpClient
   ) { }
 
+  private loginURL = this.config.hsot + '/login';
+  login(username: string, pwd: string) {
+    let p = {
+      'username': username,
+      'upwd': pwd
+    }
+    return this.http.post(this.loginURL, p).toPromise();
+  }
+
   private addUserURL = this.config.hsot + '/addUser';
   addUser(user: User){
     let p = {

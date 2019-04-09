@@ -39,8 +39,12 @@ import { TextbooksComponent } from './books/textbooks/textbooks.component';
 import { OtherbooksComponent } from './books/otherbooks/otherbooks.component';
 import { CKEditorModule } from 'ng2-ckeditor';
 import { TohtmlPipe } from './pipe/tohtml.pipe';
+import { LoginComponent } from './login/login/login.component';
+import { RegisterComponent } from './login/register/register.component';
 
 export const ROUTES: Routes = [
+  {path: 'login', component: LoginComponent},
+  {path: 'register', component: RegisterComponent},
   {path: 'hotrecommendManage', component: HotrecommendmanageComponent},
   {path: 'addHorrecommend/:id', component: AddhotrecommendComponent},
   {path: 'detailhotrecommed/:id', component: DetailhotrecommendComponent},
@@ -98,6 +102,8 @@ export const ROUTES: Routes = [
     TextbooksComponent,
     OtherbooksComponent,
     TohtmlPipe,
+    LoginComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,

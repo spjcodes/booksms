@@ -1,0 +1,12 @@
+.postiongcenter{
+  position: absolute;
+  left: 50%;
+  top:50%;
+  margin-left: -400px;
+  margin-top: -300px;
+}
+.logindiv{
+  width:800px;
+  height:600px;
+  border:1px solid red;
+}
