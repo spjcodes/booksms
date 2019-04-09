@@ -3,4 +3,5 @@ export class Carousel {
   cname: string;
   cintro: string;
   ccontent: string;
+  cimg: string;
 }

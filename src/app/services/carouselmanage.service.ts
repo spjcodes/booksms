@@ -24,7 +24,8 @@ export class CarouselmanageService {
       'cid': carosuel.cid,
       'cname': carosuel.cname,
       'cintro': carosuel.cintro,
-      'ccontent': carosuel.ccontent
+      'ccontent': carosuel.ccontent,
+      'cimg': carosuel.cimg
     };
     return this.http.post(this.addCarouselURl, p).toPromise();
   }
@@ -43,7 +44,8 @@ export class CarouselmanageService {
       'cid': c.cid,
       'cname': c.cname,
       'cintro': c.cintro,
-      'ccontent': c.ccontent
+      'ccontent': c.ccontent,
+      'cimg': c.cimg
     };
     return this.http.post(this.updateCarouselURL, p).toPromise();
   }

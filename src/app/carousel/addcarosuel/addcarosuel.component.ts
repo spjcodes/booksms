@@ -3,6 +3,7 @@ import {CarouselmanageService} from '../../services/carouselmanage.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Carousel} from '../../model/carousel';
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
+import {PicturemanageService} from '../../services/picturemanage.service';
 
 @Component({
   selector: 'app-addcarosuel',
@@ -19,6 +20,7 @@ export class AddcarosuelComponent implements OnInit {
               private routerinfo: ActivatedRoute,
               private router: Router,
               private http: HttpClient,
+              private pictureService: PicturemanageService,
               ) { }
 
   ngOnInit() {
@@ -68,22 +70,26 @@ export class AddcarosuelComponent implements OnInit {
     });
   }
 
-  onchange(event) {
+
+  onFileChanged(event) {
     this.selectedFile = event.target.files[0];
   }
 
-  onUpload() {
-    // upload code goes here
+  // onUpload() {
+  //   const uploadData = new FormData();
+  //   uploadData.append('uploadfile', this.selectedFile);
+  //   this.http.post('http://localhost:8081/manage/uploadPic', uploadData).subscribe(
+  //     (data: any) => {
+  //       // alert(data);
+  //       console.log(JSON.stringify(data));
+  //     }, (err: HttpErrorResponse) => {
+  //       console.log(err.message);
+  //     }
+  //   );
+  // }
 
-    const uploadData = new FormData();
-    uploadData.append('uploadfile', this.selectedFile);
-    this.http.post('http://localhost/manage/uploadPic', uploadData).subscribe(
-      (data: any) => {
-        // alert(data);
-        console.log(JSON.stringify(data));
-      }, (err: HttpErrorResponse) => {
-        console.log(err.message);
-      }
-    );
+
+  onUpload() {
+    this.pictureService.onUpload(this.selectedFile);
   }
 }

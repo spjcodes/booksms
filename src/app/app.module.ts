@@ -41,6 +41,7 @@ import { CKEditorModule } from 'ng2-ckeditor';
 import { TohtmlPipe } from './pipe/tohtml.pipe';
 import { LoginComponent } from './login/login/login.component';
 import { RegisterComponent } from './login/register/register.component';
+import {PicturemanageService} from './services/picturemanage.service';
 
 export const ROUTES: Routes = [
   {path: 'login', component: LoginComponent},
@@ -125,6 +126,7 @@ export const ROUTES: Routes = [
     CarouselmanageService,
     BookmanageService,
     UsermanageService,
+    PicturemanageService,
   ],
   bootstrap: [AppComponent]
 })
