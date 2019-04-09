@@ -23,9 +23,4 @@ export class PicturemanageService {
     );
   }
 
-  selectedFile: string;
-  onFileChanged(event) {
-    this.selectedFile = event.target.files[0];
-  }
-
 }

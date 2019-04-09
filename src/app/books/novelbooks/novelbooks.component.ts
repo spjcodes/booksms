@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Book} from '../../model/book';
-import {ActivatedRoute, Router, Params} from '@angular/router';
+import {ActivatedRoute, Router, Params, NavigationEnd} from '@angular/router';
 import {BookmanageService} from '../../services/bookmanage.service';
 
 @Component({
@@ -14,16 +14,32 @@ export class NovelbooksComponent implements OnInit {
   type: string;
 
 
-  constructor(private ruter: Router,
+  constructor(private router: Router,
               private routerInfo: ActivatedRoute,
-              private bookService: BookmanageService) { }
+              private bookService: BookmanageService) {
+
+    this.router.events.subscribe((event: any) => {
+      if(event instanceof  NavigationEnd) {
+        console.log(event);
+        this.getBooks();
+      }
+    });
+
+    // this.routerInfo.events.subscribe((event: any) => {
+    //   if (event instanceof NavigationEnd) {
+    //     console.log(event);
+    //     this.parm = this.ruter.snapshot.paramMap.get('name');
+    //   }
+    // });
+  }
 
   ngOnInit() {
-    this.getBooks();
+    // this.getBooks();
   }
 
   private getBooks() {
     this.routerInfo.params.subscribe((params: Params) => this.parm = params['id']);
+
     console.dir(this.parm);
     // this.parm = this.routerInfo.snapshot.params['id'];
     switch (this.parm) {

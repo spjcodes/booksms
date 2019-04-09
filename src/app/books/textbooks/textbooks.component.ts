@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Book} from '../../model/book';
 import {BookmanageService} from '../../services/bookmanage.service';
-import {ActivatedRoute, Params} from '@angular/router';
+import {ActivatedRoute, NavigationEnd, Params, Router} from '@angular/router';
 
 @Component({
   selector: 'app-textbooks',
@@ -15,11 +15,21 @@ export class TextbooksComponent implements OnInit {
 
   constructor(private bookService: BookmanageService,
               private routerInfo: ActivatedRoute,
-              ) { }
+              private router: Router,
+              ) {
+    this.router.events.subscribe((event: any) => {
+      if(event instanceof  NavigationEnd) {
+        console.log(event);
+        this.getBooks();
+        this.setType();
+      }
+    });
+
+  }
 
   ngOnInit() {
-    this.getBooks();
-    this.setType();
+    // this.getBooks();
+
   }
 
   private getBooks() {
