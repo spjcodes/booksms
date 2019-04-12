@@ -14,6 +14,7 @@ export class AddcarosuelComponent implements OnInit {
   carousel: Carousel;
   parm: string;
   config: any;
+  private url: string;
   private selectedFile: string;
 
   constructor(private carouservice: CarouselmanageService,
@@ -37,6 +38,7 @@ export class AddcarosuelComponent implements OnInit {
   save(c: Carousel) {
     if (this.parm === 'add') {
       this.carouservice.addCarousel(c).then((flage: boolean) => {
+console.dir(c);
         if (!flage) {
           alert('添加失败！');
         } else {
@@ -75,21 +77,22 @@ export class AddcarosuelComponent implements OnInit {
     this.selectedFile = event.target.files[0];
   }
 
-  // onUpload() {
-  //   const uploadData = new FormData();
-  //   uploadData.append('uploadfile', this.selectedFile);
-  //   this.http.post('http://localhost:8081/manage/uploadPic', uploadData).subscribe(
-  //     (data: any) => {
-  //       // alert(data);
-  //       console.log(JSON.stringify(data));
-  //     }, (err: HttpErrorResponse) => {
-  //       console.log(err.message);
-  //     }
-  //   );
-  // }
-
-
   onUpload() {
-    this.pictureService.onUpload(this.selectedFile);
+    const uploadData = new FormData();
+    uploadData.append('uploadfile', this.selectedFile);
+    this.http.post('http://localhost:8081/manage/uploadPic', uploadData).subscribe(
+      (data: any) => {
+        if ( data != null) {
+          this.url = 'http://localhost:8081/';
+          this.carousel.cimg = this.url + data.cimg;
+          console.dir(JSON.stringify(data));
+        } else {
+          alert('文件上传失败！');
+        }
+      }, (err: HttpErrorResponse) => {
+        console.log(err.message);
+      }
+    );
   }
+
 }

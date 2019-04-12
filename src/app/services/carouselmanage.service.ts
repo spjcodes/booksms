@@ -17,7 +17,6 @@ export class CarouselmanageService {
     }
       return this.http.post(this.getCarouselURL, p).toPromise();
   }
-
   private addCarouselURl = this.config.hsot + '/addCarousel';
   addCarousel(carosuel: Carousel){
     let p = {

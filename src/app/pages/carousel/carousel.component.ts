@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {NgbCarouselConfig} from '@ng-bootstrap/ng-bootstrap';
+import {CarouselmanageService} from '../../services/carouselmanage.service';
+import {Carousel} from '../../model/carousel';
 
 @Component({
   selector: 'app-carousel',
@@ -9,16 +11,24 @@ import {NgbCarouselConfig} from '@ng-bootstrap/ng-bootstrap';
 export class CarouselComponent implements OnInit {
 
   images = [1, 2, 3, 4].map(() => `https://picsum.photos/1120/560?random&t=${Math.random()}`);
-
-  constructor(config: NgbCarouselConfig) {
-    // customize default values of carousels used by this component tree
-    config.interval = 3000;
+  carousels: Array<Carousel>;
+  carousel: Carousel;
+  src: string;
+  constructor(private config: NgbCarouselConfig,
+              private carouselService: CarouselmanageService ) {
+    config.interval = 3800;
     config.wrap = false;
     config.keyboard = false;
-    // config.pauseOnHover = false;
-  }
+    config.pauseOnHover = false;
+}
 
   ngOnInit() {
+    this.src = 'd:/booksmsFiles/';
+    this.carouselService.getCarosuelList().then((data: any) => {
+      this.carousels = data;
+      console.dir(data);
+    });
+
   }
 
 }
