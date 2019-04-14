@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Book} from '../../model/book';
 import {BookmanageService} from '../../services/bookmanage.service';
 import {ActivatedRoute, Router} from '@angular/router';
+import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 
 @Component({
   selector: 'app-addbook',
@@ -18,10 +19,13 @@ export class AddbookComponent implements OnInit {
   novelishidden: boolean;
   textbookishidden: boolean;
   otherbookishidden: boolean;
+  selectedFile: string;
   textbookadd: any;
+  url: string;
   constructor(private bookService: BookmanageService,
               private router: Router,
               private routeInfo: ActivatedRoute,
+              private http: HttpClient,
               ) { }
 
   ngOnInit() {
@@ -147,4 +151,27 @@ console.log('add textbook ....' + this.book.bstype);
     this.book.bimage = null;
     this.book.bstar = null;
   }
+
+  onFileChanged(event) {
+    this.selectedFile = event.target.files[0];
+  }
+
+  onUpload() {
+    const uploadData = new FormData();
+    uploadData.append('uploadfile', this.selectedFile);
+    this.http.post('http://localhost:8081/manage/uploadPic', uploadData).subscribe(
+      (data: any) => {
+        if ( data != null) {
+          this.url = 'http://localhost:8081/';
+          this.book.bimage = this.url + data.bimage;
+          console.dir(JSON.stringify(data));
+        } else {
+          alert('文件上传失败！');
+        }
+      }, (err: HttpErrorResponse) => {
+        console.log(err.message);
+      }
+    );
+  }
+
 }

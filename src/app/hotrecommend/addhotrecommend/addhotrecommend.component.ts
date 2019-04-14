@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {HotrecommendService} from '../../services/hotrecommend.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Hotrecommend} from '../../model/hotrecommend';
-import {b, v} from '@angular/core/src/render3';
+import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 
 @Component({
   selector: 'app-addhotrecommend',
@@ -13,10 +13,13 @@ export class AddhotrecommendComponent implements OnInit {
 
   parm: string;
   hotrecommend: Hotrecommend;
+  private selectedFile: string;
+  private url: string;
 
   constructor(private hotservice: HotrecommendService,
               private router: Router,
               private routerinfo: ActivatedRoute,
+              private http: HttpClient,
   ) {
   }
 
@@ -64,4 +67,29 @@ export class AddhotrecommendComponent implements OnInit {
     this.hotrecommend.hintro = undefined;
     this.hotrecommend.himage = undefined;
   }
+
+
+
+  onFileChanged(event) {
+    this.selectedFile = event.target.files[0];
+  }
+
+  onUpload() {
+    const uploadData = new FormData();
+    uploadData.append('uploadfile', this.selectedFile);
+    this.http.post('http://localhost:8081/manage/uploadPic', uploadData).subscribe(
+      (data: any) => {
+        if ( data != null) {
+          this.url = 'http://localhost:8081/';
+          this.hotrecommend.himage = this.url + data.himage;
+          console.dir(JSON.stringify(data));
+        } else {
+          alert('文件上传失败！');
+        }
+      }, (err: HttpErrorResponse) => {
+        console.log(err.message);
+      }
+    );
+  }
+
 }
