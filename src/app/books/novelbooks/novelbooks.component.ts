@@ -19,8 +19,8 @@ export class NovelbooksComponent implements OnInit {
               private bookService: BookmanageService) {
 
     this.router.events.subscribe((event: any) => {
-      if(event instanceof  NavigationEnd) {
-        console.log(event);
+      if (event instanceof  NavigationEnd) {
+        // console.log(event);
         this.getBooks();
       }
     });
@@ -65,5 +65,9 @@ export class NovelbooksComponent implements OnInit {
       }
     });
 
+  }
+
+  toBookDetail(bid: string) {
+    this.router.navigate(['bookdetail', bid]);
   }
 }

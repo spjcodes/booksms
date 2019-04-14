@@ -25,8 +25,8 @@
       </div>
 
       <!-- [ngModel]="book.btype" name="btype" -->
-      <div class="input-group mb-3">
-        <select [hidden] = "novelishidden" (change)="onchange($event.target.value)" class="custom-select"  id="inputGroupSelect02">
+      <div [hidden] = novelishidden class="input-group mb-3">
+        <select  (change)="onchange($event.target.value)" class="custom-select"  id="inputGroupSelect02">
           <option selected>{{book.btype}}</option>
           <option value="0">古典小说</option>
           <option value="2">侦探,推理,悬疑小说</option>
@@ -41,8 +41,8 @@
 
       </div>
       
-      <div class="input-group mb-3">
-          <select [hidden] = "textbookadd" (change)="onchange($event.target.value)" class="custom-select"  id="inputGroupSelect02">
+      <div [hidden] = "textbookadd" class="input-group mb-3">
+          <select  (change)="onchange($event.target.value)" class="custom-select" >
             <option selected>{{book.btype}}</option>
             <option value="0">财务会计教育</option>
             <option value="2">广告学</option>

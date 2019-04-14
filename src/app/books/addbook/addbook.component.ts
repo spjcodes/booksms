@@ -15,9 +15,10 @@ export class AddbookComponent implements OnInit {
   books: Array<Book>;
   types: any;
   bookmanage: string;
-  novelishidden: boolean = true;
-  textbookishidden: boolean = true;
-  otherbookishidden: boolean = true;
+  novelishidden: boolean;
+  textbookishidden: boolean;
+  otherbookishidden: boolean;
+  textbookadd: any;
   constructor(private bookService: BookmanageService,
               private router: Router,
               private routeInfo: ActivatedRoute,
@@ -28,24 +29,27 @@ export class AddbookComponent implements OnInit {
     this.ishiddenselect();
   }
 
-  ishiddenselect(){
+  ishiddenselect() {
+    this.otherbookishidden = true;
+    this.novelishidden = true;
+    this.textbookishidden = true;
     if (this.parm === 'noveladd') {
       this.novelishidden = false;
-    } else if( this.parm === 'textbookadd') {
+    } else if ( this.parm === 'textbookadd') {
       this.textbookishidden = false;
     } else {
-      this.book.btype = 'outher'
+      this.book.btype = 'outher';
     }
   }
-    
 
-  onchange(key: any){
+
+  onchange(key: any) {
     this.book.btype = this.types[key].vlaue;
     // this.book.bstype = 'novel';
   }
-  
- 
-  
+
+
+
 
   add(book: Book) {
     this.bookService.addBook(book).then((flage: boolean) => {
@@ -59,47 +63,47 @@ export class AddbookComponent implements OnInit {
 
   private initBook() {
     this.parm = this.routeInfo.snapshot.params['id'];
-    if(this.parm === 'noveladd') {
+    if (this.parm === 'noveladd') {
       this.book = new Book();
       this.book.bstype = 'novel';
-console.log("add novel ...." + this.book.bstype);
+console.log('add novel ....' + this.book.bstype);
       this.types = [
-        {key: "0", vlaue: "modern"},
-        {key: "1", vlaue: "classical"},
-        {key: "2", vlaue: "detective"},
-        {key: "4", vlaue: "gongfu"},
-        {key: "5", vlaue: "science"},
-        {key: "6", vlaue: "nother"},
+        {key: '0', vlaue: 'modern'},
+        {key: '1', vlaue: 'classical'},
+        {key: '2', vlaue: 'detective'},
+        {key: '4', vlaue: 'gongfu'},
+        {key: '5', vlaue: 'science'},
+        {key: '6', vlaue: 'nother'},
       ];
-    } else if (this.parm === 'textbookadd') { 
+    } else if (this.parm === 'textbookadd') {
       this.book = new Book();
       this.book.bstype = 'textbook';
-console.log("add textbook ...." + this.book.bstype);
+console.log('add textbook ....' + this.book.bstype);
       this.types = [
-        {key: "0", vlaue: "financial"},
-        {key: "1", vlaue: "advertising"},
-        {key: "2", vlaue: "pubmanser"},
-        {key: "4", vlaue: "businessadmin"},
-        {key: "5", vlaue: "chinlanlite"},
-        {key: "6", vlaue: "computer"},
-        {key: "7", vlaue: "toumanagement"},
-        {key: "8", vlaue: "laolanguange"},
-        {key: "9", vlaue: "secrescien"},
-        {key: "10", vlaue: "marketing"},
-        {key: "11", vlaue: "humanresource"},
+        {key: '0', vlaue: 'financial'},
+        {key: '1', vlaue: 'advertising'},
+        {key: '2', vlaue: 'pubmanser'},
+        {key: '4', vlaue: 'businessadmin'},
+        {key: '5', vlaue: 'chinlanlite'},
+        {key: '6', vlaue: 'computer'},
+        {key: '7', vlaue: 'toumanagement'},
+        {key: '8', vlaue: 'laolanguange'},
+        {key: '9', vlaue: 'secrescien'},
+        {key: '10', vlaue: 'marketing'},
+        {key: '11', vlaue: 'humanresource'},
       ];
-    } else if (this.parm === "otheradd") {
+    } else if (this.parm === 'otheradd') {
       this.book = new Book();
       this.book.bstype = 'other';
-      this.bookmanage = "otherbookmanage";
-     alert("添加其他书籍");
+      this.bookmanage = 'otherbookmanage';
+     alert('添加其他书籍');
     } else {
       this.getBook();
     }
   }
 
-  getrouter(){
-    switch(this.parm){
+  getrouter() {
+    switch (this.parm) {
       case 'noveladd':
       this.bookmanage = 'bookmanage'; break;
       case 'textbookadd':

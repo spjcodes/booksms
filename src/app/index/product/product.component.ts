@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {Hotrecommend} from '../../model/hotrecommend';
 import {HotrecommendService} from '../../services/hotrecommend.service';
+import {HttpClient} from '@angular/common/http';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-product',
@@ -11,7 +13,8 @@ export class ProductComponent implements OnInit {
 
   hotrecommends: Array<Hotrecommend>;
 
-  constructor(private hotservice: HotrecommendService ) {
+  constructor(private hotservice: HotrecommendService,
+              private router: Router) {
 
   }
 
@@ -25,4 +28,7 @@ export class ProductComponent implements OnInit {
     });
   }
 
+  toProductDetail(hid: string) {
+    this.router.navigate(['productdetail', hid]);
+  }
 }

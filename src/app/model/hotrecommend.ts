@@ -4,4 +4,5 @@ export class Hotrecommend {
   hstar: number;
   himage: string;
   hintro: string;
+  hcost: number;
 }

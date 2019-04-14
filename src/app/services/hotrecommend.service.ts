@@ -16,7 +16,8 @@ export class HotrecommendService {
       'hname': hotrcommend.hname,
       'himage': hotrcommend.himage,
       'hintro': hotrcommend.hintro,
-      'hstar': hotrcommend.hstar
+      'hstar': hotrcommend.hstar,
+      'hcost': hotrcommend.hcost
     }
     return this.http.post(this.addHotrecommendURL, p).toPromise();
   }
@@ -37,17 +38,18 @@ export class HotrecommendService {
       'himage': hotre.himage,
       'hintro': hotre.hintro,
       'hstar': hotre.hstar,
+      'hcost': hotre.hcost
     }
     return this.http.post(this.updateHotrecommendURL, p).toPromise();
   }
 
   private getHotrecommendURL = this.config.hsot +   '/getHotrecommend';
-  getHotrecommend(id: string){
+  getHotrecommend(id: string) {
     // @ts-ignore
     let p  = {
       'hid': id
     }
-    return this.http.post(this.getHotrecommendURL, p).toPromise();
+    return this.http.post('http://localhost:8081/manage/getHotrecommend', p).toPromise();
   }
 
   private getHotrecommendListURL = this.config.hsot +  '/getHotrecommendList';

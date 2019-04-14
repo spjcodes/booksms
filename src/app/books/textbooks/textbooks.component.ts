@@ -18,8 +18,8 @@ export class TextbooksComponent implements OnInit {
               private router: Router,
               ) {
     this.router.events.subscribe((event: any) => {
-      if(event instanceof  NavigationEnd) {
-        console.log(event);
+      if (event instanceof  NavigationEnd) {
+        // console.log(event);
         this.getBooks();
         this.setType();
       }
@@ -73,5 +73,9 @@ export class TextbooksComponent implements OnInit {
       case 'otherbooks':
         this.type = '其他类图书'; break;
     }
+  }
+
+  toBookDetail(bid: string) {
+    this.router.navigate(['bookdetail', bid]);
   }
 }

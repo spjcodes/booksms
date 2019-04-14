@@ -1,5 +1,7 @@
 <div class="col-lg-3 col-sm-3 col-xl-3 card pro" *ngFor="let h of hotrecommends" >
-  <img src="http://placehold.it/220x220" class="card-img-top" alt="...">
+ <a (click)="toProductDetail(h.hid)">
+   <img src="http://placehold.it/220x220" class="card-img-top" alt="...">
+ </a>
   <div class="card-body">
     <h5 class="card-title">{{h.hname}}</h5>
     <h6 class="card-subtitle mb-2 text-muted">{{h.hstar}}></h6>

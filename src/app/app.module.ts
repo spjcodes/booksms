@@ -15,7 +15,6 @@ import { AdduserComponent } from './user/adduser/adduser.component';
 import { EdituserComponent } from './user/edituser/edituser.component';
 import { CarouselmanageComponent } from './manage/carouselmanage/carouselmanage.component';
 import { AddcarosuelComponent } from './carousel/addcarosuel/addcarosuel.component';
-import { EditcarouselComponent } from './carousel/editcarousel/editcarousel.component';
 import { DetailcarouselComponent } from './carousel/detailcarousel/detailcarousel.component';
 import { AddhotrecommendComponent } from './hotrecommend/addhotrecommend/addhotrecommend.component';
 import {HotrecommendService} from './services/hotrecommend.service';
@@ -42,6 +41,9 @@ import { TohtmlPipe } from './pipe/tohtml.pipe';
 import { LoginComponent } from './login/login/login.component';
 import { RegisterComponent } from './login/register/register.component';
 import {PicturemanageService} from './services/picturemanage.service';
+import { StarsComponent } from './pages/stars/stars.component';
+import { DetailuserComponent } from './user/detailuser/detailuser.component';
+import { ProductdetailComponent } from './index/productdetail/productdetail.component';
 
 export const ROUTES: Routes = [
   {path: 'login', component: LoginComponent},
@@ -69,7 +71,9 @@ export const ROUTES: Routes = [
   {path: 'novelbooks/:id', component: NovelbooksComponent},
   {path: 'textbooks/:id', component: TextbooksComponent},
   {path: 'otherbooks/:id', component: OtherbooksComponent},
-
+  {path: 'bookdetail/:id', component: DetailbookComponent},
+  {path: 'userdetail/:id', component: DetailuserComponent},
+  {path: 'productdetail/:id', component: ProductdetailComponent},
 
 ]
 @NgModule({
@@ -87,7 +91,6 @@ export const ROUTES: Routes = [
     EdituserComponent,
     CarouselmanageComponent,
     AddcarosuelComponent,
-    EditcarouselComponent,
     DetailcarouselComponent,
     AddhotrecommendComponent,
     HotrecommendmanageComponent,
@@ -105,6 +108,9 @@ export const ROUTES: Routes = [
     TohtmlPipe,
     LoginComponent,
     RegisterComponent,
+    StarsComponent,
+    DetailuserComponent,
+    ProductdetailComponent,
   ],
   imports: [
     BrowserModule,

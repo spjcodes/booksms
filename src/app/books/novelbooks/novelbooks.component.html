@@ -4,11 +4,17 @@
 <hr> <br>
 <div class="row" >
   <div class="col-lg-3 col-sm-3 col-xl-3 card pro" *ngFor="let b of books" >
-    <img src="http://placehold.it/220x220" class="card-img-top" alt="...">
+    <a (click)="toBookDetail(b.bid)">
+      <img src="http://placehold.it/220x220" class="card-img-top" alt="...">
+    </a>
     <div class="card-body">
-      <h5 class="card-title">{{b.bname}}</h5>
+      <a (click)="toBookDetail(b.bid)">
+        <h5 class="card-title">{{b.bname}}</h5>
+      </a>
       <h6 class="card-subtitle mb-2 text-muted">{{b.bstar}}></h6>
+      <a (click)="toBookDetail(b.bid)">
       <p class="card-text">{{b.bintro}}</p>
+      </a>
     </div>
   </div>
 </div>
