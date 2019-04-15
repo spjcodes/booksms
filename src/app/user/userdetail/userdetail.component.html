@@ -1,0 +1,23 @@
+<div class="card">
+  <div class="card-header">
+    您好！<span style="color: red;">{{user.username}}</span>
+  </div>
+  <div class="card-body">
+    <div class="text-center" style="width: 120px; height:120px;overflow: hidden; float: none;margin-left: auto;margin-right:auto">
+      <img [src]=user.uimage class="rounded" alt="..." >
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">用户名:<span class="text-center poscent">{{user.username}}</span></li>
+      <li class="list-group-item">密码:<span class="text-center poscent">{{user.upwd}}</span></li>
+      <li class="list-group-item">角色:<span class="text-center poscent">{{user.urole}}</span></li>
+      <li class="list-group-item">积分:<span class="text-center poscent">{{user.udiscounts}}</span></li>
+      <li class="list-group-item">等级:<span class="text-center poscent">{{user.ugrade}}</span></li>
+      <li class="list-group-item">联系电话:<span class="text-center poscent">{{user.umobile}}</span></li>
+      <li class="list-group-item">地址:<span class="text-center poscent">{{user.uaddress}}</span></li>
+      <hr>
+    </ul>
+  </div>
+  <div class="text-center">
+    <button class="btn  btn-info">返回</button>
+  </div>
+</div>

@@ -44,6 +44,8 @@ import {PicturemanageService} from './services/picturemanage.service';
 import { StarsComponent } from './pages/stars/stars.component';
 import { DetailuserComponent } from './user/detailuser/detailuser.component';
 import { ProductdetailComponent } from './index/productdetail/productdetail.component';
+import { BookinfoComponent } from './books/bookinfo/bookinfo.component';
+import { UserdetailComponent } from './user/userdetail/userdetail.component';
 
 export const ROUTES: Routes = [
   {path: 'login', component: LoginComponent},
@@ -72,8 +74,10 @@ export const ROUTES: Routes = [
   {path: 'textbooks/:id', component: TextbooksComponent},
   {path: 'otherbooks/:id', component: OtherbooksComponent},
   {path: 'bookdetail/:id', component: DetailbookComponent},
-  {path: 'userdetail/:id', component: DetailuserComponent},
   {path: 'productdetail/:id', component: ProductdetailComponent},
+  {path: 'bookinfo/:id', component: BookinfoComponent},
+  {path: 'userdetail/:id', component: UserdetailComponent},
+  {path: 'carouseldetail', component: DetailcarouselComponent},
 
 ]
 @NgModule({
@@ -111,6 +115,8 @@ export const ROUTES: Routes = [
     StarsComponent,
     DetailuserComponent,
     ProductdetailComponent,
+    BookinfoComponent,
+    UserdetailComponent,
   ],
   imports: [
     BrowserModule,

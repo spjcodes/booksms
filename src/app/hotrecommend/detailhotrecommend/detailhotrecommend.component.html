@@ -1,3 +1,16 @@
-<p>
-  detailhotrecommend works!
-</p>
+<div class="card" style="width:80%;margin-left: 10%;">
+  <img [src]=hotrecomment.himage class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{hotrecomment.hname}}</h5>
+    <p class="card-text">{{hotrecomment.hcost}}</p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">{{hotrecomment.hid}}</li>
+    <li class="list-group-item">{{hotrecomment.hintro}}</li>
+    <li class="list-group-item">{{hotrecomment.hstar}}</li>
+  </ul>
+  <div class="card-body">
+    <button (click)="toList()" class="btn  btn-block btn-primary">返回</button>
+    <button (click)="toChange(hotrecomment.hid)"  class="btn btn-block btn-info">修改</button>
+  </div>
+</div>

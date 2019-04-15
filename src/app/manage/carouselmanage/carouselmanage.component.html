@@ -20,11 +20,11 @@
         {{c.cname}}
       </td>
         <td >
-        {{c.cintro}}
+          <div style="width:60px;height:40px;overflow: hidden;">{{c.cintro}}</div>
       </td>
         <td >
 <!--        {{c.ccontent}}-->
-         <div [innerHTML]="c.ccontent| tohtml"></div>
+         <div [innerHTML]="c.ccontent| tohtml" style="height:80px;overflow: hidden;"></div>
       </td>
         <td>
           <button class="btn btn-warning" (click)="update(c)">修改</button>

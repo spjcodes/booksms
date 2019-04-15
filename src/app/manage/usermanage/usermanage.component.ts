@@ -40,7 +40,7 @@ export class UsermanageComponent implements OnInit {
   }
 
   detail(uid: string) {
-
+    this.router.navigate(['userdetail', uid]);
   }
 
   delete(uid: string) {

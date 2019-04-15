@@ -6,12 +6,14 @@
   </div>
   <div class="card-body">
     <form >
+      <label class="flotleft">标题</label>
       <input  [(ngModel)]="carousel.cname"  name="cname"  class="form-control form-control-lg martop"
-              type="text" placeholder="书名">
+              type="text" placeholder="标题">
+      <label class="flotleft">简介</label>
       <input  [(ngModel)]="carousel.cintro"  name="cintro"  class="form-control form-control-lg martop"
-              type="text" placeholder="简介">
-
-      <div class="input-group mb-3">
+              type="text" placeholder="主题简介">
+      <label class="flotleft">图片选择</label>
+      <label class="flotleft"></label><div class="input-group mb-3">
         <div class="custom-file">
           <input type="file" class="custom-file-input" (change)="onFileChanged($event)">
           <label class="custom-file-label"  >选择图片</label>
@@ -24,7 +26,10 @@
 <!--      <input  [(ngModel)]="carousel.ccontent"  name="ccontent"  class="form-control form-control-lg martop"-->
 <!--              type="text" placeholder="内容">-->
 
-
+<p>
+  <label class="flotleft">内容编辑</label>
+  <br>
+</p>
       <ckeditor  [(ngModel)]="carousel.ccontent"  name="ccontent"  debounce="500" [config]="config">
 
       </ckeditor>

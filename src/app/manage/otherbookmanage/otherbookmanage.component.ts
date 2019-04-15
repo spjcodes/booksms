@@ -30,7 +30,7 @@ export class OtherbookmanageComponent implements OnInit {
   }
 
   detail(bid: string) {
-    this.router.navigate(['detailbook', bid]);
+    this.router.navigate(['bookinfo', bid]);
   }
 
   delete(bid: string) {

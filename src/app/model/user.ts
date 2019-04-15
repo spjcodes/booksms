@@ -7,4 +7,5 @@ export class User {
   ugrade: string;
   urole: string;
   uaddress: string;
+  uimage: string;
 }

@@ -22,6 +22,8 @@ export class AddbookComponent implements OnInit {
   selectedFile: string;
   textbookadd: any;
   url: string;
+  btype: string;
+  private gotoURL: string;
   constructor(private bookService: BookmanageService,
               private router: Router,
               private routeInfo: ActivatedRoute,
@@ -99,7 +101,6 @@ console.log('add textbook ....' + this.book.bstype);
     } else if (this.parm === 'otheradd') {
       this.book = new Book();
       this.book.bstype = 'other';
-      this.bookmanage = 'otherbookmanage';
      alert('添加其他书籍');
     } else {
       this.getBook();
@@ -134,7 +135,7 @@ console.log('add textbook ....' + this.book.bstype);
       if (!flage) {
         alert('添加失败！');
       } else {
-        this.router.navigate(['/adminmanage/' + this.bookmanage]);
+        this.toManageList();
       }
     });
   }
@@ -163,8 +164,9 @@ console.log('add textbook ....' + this.book.bstype);
       (data: any) => {
         if ( data != null) {
           this.url = 'http://localhost:8081/';
-          this.book.bimage = this.url + data.bimage;
+          this.book.bimage = this.url + data.cimg;
           console.dir(JSON.stringify(data));
+          console.dir(this.book.bimage);
         } else {
           alert('文件上传失败！');
         }
@@ -174,4 +176,18 @@ console.log('add textbook ....' + this.book.bstype);
     );
   }
 
+  private toManageList() {
+    this.btype = this.book.bstype;
+    switch (this.btype) {
+      case 'novel':
+        this.gotoURL = 'bookmanage'; break;
+      case 'textbook':
+        this.gotoURL = 'textbookmanage'; break;
+      case 'otherbook':
+        this.gotoURL = 'otherbookmanage'; break;
+      default:
+        this.gotoURL = 'hotrecom';
+    }
+    this.router.navigate(['/adminmanage/' + this.gotoURL]);
+  }
 }

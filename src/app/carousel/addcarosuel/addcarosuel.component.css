@@ -1,3 +1,13 @@
 .nextLine{
   width: 100%;
 }
+.flotleft{
+  width:200px;
+  font-size: 12px;
+  float:left;
+  margin:0px;
+  padding:0px;
+  margin-bottom: 8px;
+  margin-left: 10px;
+  text-align: left;
+}

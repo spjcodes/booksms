@@ -81,7 +81,7 @@ export class AddhotrecommendComponent implements OnInit {
       (data: any) => {
         if ( data != null) {
           this.url = 'http://localhost:8081/';
-          this.hotrecommend.himage = this.url + data.himage;
+          this.hotrecommend.himage = this.url + data.cimg;
           console.dir(JSON.stringify(data));
         } else {
           alert('文件上传失败！');

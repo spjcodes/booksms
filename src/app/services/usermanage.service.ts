@@ -28,7 +28,8 @@ export class UsermanageService {
       'ugrade': user.ugrade,
       'umobile': user.umobile,
       'upwd': user.upwd,
-      'urole': user.urole
+      'urole': user.urole,
+      'uimage': user.uimage
     }
     return this.http.post(this.addUserURL, p).toPromise();
   }
@@ -51,7 +52,8 @@ export class UsermanageService {
       'ugrade': user.ugrade,
       'umobile': user.umobile,
       'upwd': user.upwd,
-      'urole': user.urole
+      'urole': user.urole,
+      'uimage': user.uimage
     }
     return this.http.post(this.updateUserURL, p).toPromise();
   }

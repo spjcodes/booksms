@@ -1,0 +1,24 @@
+<div class="card" style="width:80%;margin-left: 10%;">
+  <img [src]=book.bimage class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">《{{book.bname}}》</h5>
+    <p class="card-text" style="font-size: 14px">版本号：{{book.bversion}}</p>
+
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">主键：{{book.bid}}</li>
+    <li class="list-group-item">类型：{{book.btype}}</li>
+    <li class="list-group-item">原价：{{book.boldcost}}</li>
+    <li class="list-group-item">现价：{{book.bnewcost}}</li>
+    <li class="list-group-item">评分：{{book.bstar}}</li>
+    <li class="list-group-item">简介：
+      <br><hr>
+      {{book.bintro}}
+    </li>
+
+  </ul>
+  <div class="card-body">
+    <button (click)="toList()" class="btn  btn-block btn-primary">返回</button>
+    <button (click)="toChange(book.bid)"  class="btn btn-block btn-info">修改</button>
+  </div>
+</div>

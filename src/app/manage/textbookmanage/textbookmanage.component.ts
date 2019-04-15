@@ -29,7 +29,7 @@ export class TextbookmanageComponent implements OnInit {
   }
 
   detail(bid: string) {
-    this.router.navigate(['detailbook', bid]);
+    this.router.navigate(['bookinfo', bid]);
   }
 
   delete(bid: string) {

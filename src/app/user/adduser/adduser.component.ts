@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {User} from '../../model/user';
 import {ActivatedRoute, Router} from '@angular/router';
 import {UsermanageService} from '../../services/usermanage.service';
+import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 
 @Component({
   selector: 'app-adduser',
@@ -11,9 +12,12 @@ import {UsermanageService} from '../../services/usermanage.service';
 export class AdduserComponent implements OnInit {
   user: User;
   parm: string;
+  private selectedFile: string;
+  private url: string;
   constructor(private router: Router,
               private routerInfo: ActivatedRoute,
-              private userService: UsermanageService) { }
+              private userService: UsermanageService,
+              private http: HttpClient) { }
 
   ngOnInit() {
     this.initUser();
@@ -66,5 +70,28 @@ export class AdduserComponent implements OnInit {
         }
       });
     }
+  }
+
+  onFileChanged(event) {
+    this.selectedFile = event.target.files[0];
+  }
+
+  onUpload() {
+    const uploadData = new FormData();
+    uploadData.append('uploadfile', this.selectedFile);
+    this.http.post('http://localhost:8081/manage/uploadPic', uploadData).subscribe(
+      (data: any) => {
+        if ( data != null) {
+          this.url = 'http://localhost:8081/';
+          this.user.uimage = this.url + data.cimg;
+          console.dir(JSON.stringify(data));
+          console.dir(this.user.uimage);
+        } else {
+          alert('文件上传失败！');
+        }
+      }, (err: HttpErrorResponse) => {
+        console.log(err.message);
+      }
+    );
   }
 }

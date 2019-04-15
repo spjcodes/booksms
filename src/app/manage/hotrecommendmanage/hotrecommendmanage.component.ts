@@ -37,12 +37,12 @@ export class HotrecommendmanageComponent implements OnInit {
 
   delete(hid: string) {
     this.hotreservice.deleteHotrecommend(hid).then((flage: boolean) => {
-      if(flage !== true){
-        alert("删除失败！");
-      } else{
+      if (flage !== true) {
+        alert('删除失败！');
+      } else {
         this.getHotrecommendList();
       }
-    })
+    });
   }
 
   detail(hid: string) {

@@ -1,3 +1,17 @@
-<p>
-  detailcarousel works!
-</p>
+<div class="row " style="width: 100%;float: none;margin-left:auto;margin-ringht:auto;margin:0px;padding:0px;">
+  <div class="card" style="margin-bottom: 18px;" >
+    <img [src]=carousel.cimg class="card-img-top" alt="...">
+
+    <div class="card" >
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item"><span style="color: #0291df">标题：</span> {{carousel.cname}}</li>
+        <li class="list-group-item"><span style="color: #0291df">简介：</span>{{carousel.cintro}}</li>
+        <!--<li class="list-group-item">{{carousel.ccontent}}</li>-->
+        <div [innerHTML]="carousel.ccontent| tohtml"></div>
+      </ul>
+      <span style="width:100%; text-align: center;padding-top: 8px">
+        <button class="btn btn-block btn-info" (click)="goback()">返回</button>
+      </span>
+    </div>
+  </div>
+</div>
