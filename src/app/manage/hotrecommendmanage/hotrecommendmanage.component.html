@@ -19,7 +19,7 @@
         </td><td >
           {{h.hname}}
         </td><td >
-          {{h.hintro}}
+        <div class="manageShowHidden" [innerHTML]="h.hintro| tohtml"></div>
         </td><td >
           {{h.himage}}
         </td><td >

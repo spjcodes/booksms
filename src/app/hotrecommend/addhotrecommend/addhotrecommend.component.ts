@@ -15,6 +15,7 @@ export class AddhotrecommendComponent implements OnInit {
   hotrecommend: Hotrecommend;
   private selectedFile: string;
   private url: string;
+  config: any;
 
   constructor(private hotservice: HotrecommendService,
               private router: Router,

@@ -6,9 +6,10 @@
   </div>
   <div class="card-body">
     <form >
+      <label class="float-left">商品名</label>
       <input  [(ngModel)]="hotrecommend.hname" name="hname" class="form-control form-control-lg martop" type="text" placeholder="书名">
-      <input  [(ngModel)]="hotrecommend.hintro" name="hintro"  class="form-control form-control-lg martop" type="text" placeholder="简介">
 
+      <label class="float-left">封面图片</label>
       <div class="input-group mb-3">
         <div class="custom-file">
           <input type="file" class="custom-file-input" (change)="onFileChanged($event)">
@@ -18,15 +19,25 @@
           <button class="input-group-text" (click)="onUpload()" >上传</button>
         </div>
       </div>
+      <label class="float-left">售价:</label>
+      <input  [(ngModel)]="hotrecommend.hcost" name="hcost"  class="form-control form-control-lg martop" type="text" placeholder="售价">
 
+      <label class="float-left">推荐星数:</label>
       <input  [(ngModel)]="hotrecommend.hstar" name="hstar"  class="form-control form-control-lg martop" type="text" placeholder="星数">
     </form>
+  </div>
 
-    <div >
-      <button class="btn btn-primary" (click)="save(hotrecommend)">提交</button>
-      <button class="btn btn-danger" (click)="reset()" >重置</button>
-    </div>
+  <!--<input  [(ngModel)]="hotrecommend.hintro" name="hintro"  class="form-control form-control-lg martop" type="text" placeholder="简介">-->
+  <p>
+    <label class="flotleft">内容编辑</label>
+    <br>
+  </p>
+  <ckeditor  [(ngModel)]="hotrecommend.hintro"  name="hintro"  debounce="500" [config]="config">
+  </ckeditor>
 
+  <div style="padding: 8px;">
+    <button class="btn btn-primary" style="margin:10px;" (click)="save(hotrecommend)">提交</button>
+    <button class="btn btn-danger" (click)="reset()" >重置</button>
   </div>
 
   <div class="card-footer text-muted">
