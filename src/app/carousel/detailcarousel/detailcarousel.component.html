@@ -6,6 +6,7 @@
       <ul class="list-group list-group-flush">
         <li class="list-group-item"><span style="color: #0291df">标题：</span> {{carousel.cname}}</li>
         <li class="list-group-item"><span style="color: #0291df">简介：</span>{{carousel.cintro}}</li>
+        <li class="list-group-item" style="border-bottom:0px;"><span style="color: #0291df">正文：</span></li>
         <!--<li class="list-group-item">{{carousel.ccontent}}</li>-->
         <div [innerHTML]="carousel.ccontent| tohtml"></div>
       </ul>

@@ -77,7 +77,7 @@ export const ROUTES: Routes = [
   {path: 'productdetail/:id', component: ProductdetailComponent},
   {path: 'bookinfo/:id', component: BookinfoComponent},
   {path: 'userdetail/:id', component: UserdetailComponent},
-  {path: 'carouseldetail', component: DetailcarouselComponent},
+  {path: 'carouseldetail/:id/:type', component: DetailcarouselComponent},
 
 ]
 @NgModule({

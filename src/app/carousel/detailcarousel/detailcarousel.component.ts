@@ -11,6 +11,7 @@ import {CarouselmanageService} from '../../services/carouselmanage.service';
 export class DetailcarouselComponent implements OnInit {
   carousel: Carousel;
   param: string;
+  type: string;
 
   constructor(private router: Router,
               private routerInfo: ActivatedRoute,
@@ -22,6 +23,8 @@ export class DetailcarouselComponent implements OnInit {
   }
 
   private getCarousel() {
+    this.type = this.routerInfo.snapshot.params['type'];
+console.log(this.type);
     this.param = this.routerInfo.snapshot.params['id'];
     this.carouselService.getCarosuel(this.param).then((data: any) => {
       if (data != null) {
@@ -33,6 +36,13 @@ export class DetailcarouselComponent implements OnInit {
   }
 
   goback() {
-    this.router.navigate(['./adminmanage/carouselmanage']);
+    if (this.type === 'carousel') {
+      this.router.navigate(['pageone']);
+
+    } else {
+      this.router.navigate(['./adminmanage/carouselmanage']);
+
+    }
+
   }
 }

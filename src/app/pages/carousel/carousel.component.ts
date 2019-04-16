@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {NgbCarouselConfig} from '@ng-bootstrap/ng-bootstrap';
 import {CarouselmanageService} from '../../services/carouselmanage.service';
 import {Carousel} from '../../model/carousel';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-carousel',
@@ -15,7 +16,8 @@ export class CarouselComponent implements OnInit {
   carousel: Carousel;
   src: string;
   constructor(private config: NgbCarouselConfig,
-              private carouselService: CarouselmanageService ) {
+              private carouselService: CarouselmanageService,
+              private router: Router,) {
     config.interval = 3800;
     config.wrap = false;
     config.keyboard = false;
@@ -31,4 +33,8 @@ export class CarouselComponent implements OnInit {
 
   }
 
+  toDetail(cid: string, type: string) {
+    type = 'carousel';
+    this.router.navigate(['/carouseldetail', cid, type]);
+  }
 }

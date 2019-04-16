@@ -1,21 +1,9 @@
-`  <!--<div class=" martop">-->
-  <!--<ngb-carousel >-->
-    <!--<ng-template  *ngFor="let c of carousels">-->
-      <!--<img [src]=c.cimg alt="Random first slide">-->
-      <!--<div class="carousel-caption">-->
-        <!--<h3>{{c.cname}}</h3>-->
-        <!--<p>{{c.cintro}}</p>-->
-      <!--</div>-->
-    <!--</ng-template>-->
-  <!--</ngb-carousel>-->
-<!--</div>-->
-
 <ngb-carousel *ngIf="images">
   <ng-template ngbSlide *ngFor="let c of carousels">
-    <img [src]="c.cimg" alt="Random slide">
+    <a (click)="toDetail(c.cid)"><img [src]="c.cimg" alt="Random slide"></a>
     <div class="carousel-caption">
-      <h3>{{c.cname}}</h3>
-      <p>>{{c.cintro}}</p>
+      <h3><a (click)="toDetail(c.cid)">{{c.cname}}</a></h3>
+      <p>><a (click)="toDetail(c.cid)">{{c.cintro}}</a></p>
     </div>
   </ng-template>
 </ngb-carousel>
