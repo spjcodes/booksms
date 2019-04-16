@@ -24,6 +24,8 @@ export class AddbookComponent implements OnInit {
   url: string;
   btype: string;
   private gotoURL: string;
+  booksType: string;
+  config: any;
   constructor(private bookService: BookmanageService,
               private router: Router,
               private routeInfo: ActivatedRoute,
@@ -40,10 +42,13 @@ export class AddbookComponent implements OnInit {
     this.novelishidden = true;
     this.textbookishidden = true;
     if (this.parm === 'noveladd') {
+      this.booksType = '小说';
       this.novelishidden = false;
     } else if ( this.parm === 'textbookadd') {
+      this.booksType = '教材';
       this.textbookishidden = false;
     } else {
+      this.booksType = '其他';
       this.book.btype = 'outher';
     }
   }
@@ -153,10 +158,12 @@ console.log('add textbook ....' + this.book.bstype);
     this.book.bstar = null;
   }
 
+  // 文件上传相关
   onFileChanged(event) {
     this.selectedFile = event.target.files[0];
   }
 
+  // 文件上传相关
   onUpload() {
     const uploadData = new FormData();
     uploadData.append('uploadfile', this.selectedFile);

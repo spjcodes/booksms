@@ -6,19 +6,32 @@
   </div>
   <div class="card-body">
     <form >
+      <label class="flotleft">角色</label>
+      <select  style="margin-bottom: 10px;" (change)="onchange($event.target.value)" class="custom-select"  id="inputGroupSelect02">
+        <option selected>请选择角色</option>
+        <option value="0">管理员</option>
+        <option value="1">普通用户</option>
+      </select>
+
+      <label class="flotleft">用户名</label>
       <input  [(ngModel)]="user.username"  name="username"  class="form-control form-control-lg martop"
               type="text" placeholder="用户名">
+      <label class="flotleft">密码</label>
       <input  [(ngModel)]="user.upwd"  name="upwd"  class="form-control form-control-lg martop"
               type="text" placeholder="密码">
+      <label class="flotleft">手机</label>
       <input  [(ngModel)]="user.umobile"  name="umobile"  class="form-control form-control-lg martop"
               type="text" placeholder="手机">
+      <label class="flotleft">积分</label>
       <input  [(ngModel)]="user.udiscounts"  name="udiscounts"  class="form-control form-control-lg martop"
               type="text" placeholder="积分">
+      <label class="flotleft">等级</label>
       <input  [(ngModel)]="user.ugrade"  name="ugrade"  class="form-control form-control-lg martop"
               type="text" placeholder="等级">
+      <label class="flotleft">地址</label>
       <input  [(ngModel)]="user.uaddress"  name="uaddress"  class="form-control form-control-lg martop"
               type="text" placeholder="地址">
-
+      <label class="flotleft">用户头像</label>
       <div class="input-group mb-3">
         <div class="custom-file">
           <input type="file" class="custom-file-input" (change)="onFileChanged($event)">

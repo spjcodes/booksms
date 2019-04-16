@@ -24,13 +24,6 @@ export class NovelbooksComponent implements OnInit {
         this.getBooks();
       }
     });
-
-    // this.routerInfo.events.subscribe((event: any) => {
-    //   if (event instanceof NavigationEnd) {
-    //     console.log(event);
-    //     this.parm = this.ruter.snapshot.paramMap.get('name');
-    //   }
-    // });
   }
 
   ngOnInit() {

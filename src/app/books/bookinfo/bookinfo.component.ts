@@ -37,8 +37,10 @@ export class BookinfoComponent implements OnInit {
     this.router.navigate(['adminmanage/bookmanage']);
   }
 
-  toChange(hid: string) {
-    this.router.navigate(['./addbook/noveladd', hid]);
+
+
+  toUpdate(bid: string) {
+    this.router.navigate(['addbook', bid]);
   }
 }
 

@@ -5,15 +5,22 @@
 <div class="row" >
   <div class="col-lg-3 col-sm-3 col-xl-3 card pro" *ngFor="let b of books" >
     <a (click)="toBookDetail(b.bid)">
-      <img src="http://placehold.it/220x220" class="card-img-top" alt="...">
+      <img [src]=b.bimage class="card-img-top" width="220" height="220" alt="...">
     </a>
     <div class="card-body">
+      <p class="card-text">
+        <span style="color: red;font-size: 24px;">￥{{b.bnewcost}}</span>
+        <span style="font-size: 12px;"><s>￥{{b.boldcost}}&nbsp;</s> </span>
+      </p>
       <a (click)="toBookDetail(b.bid)">
         <h5 class="card-title">{{b.bname}}</h5>
       </a>
-      <h6 class="card-subtitle mb-2 text-muted">{{b.bstar}}></h6>
       <a (click)="toBookDetail(b.bid)">
-      <p class="card-text">{{b.bintro}}</p>
+        <p class="card-title">{{b.bauthor}}</p>
+      </a>
+
+      <h6 class="card-subtitle mb-2 text-muted">{{b.bstar}}星</h6>
+      <a (click)="toBookDetail(b.bid)">
       </a>
     </div>
   </div>

@@ -14,6 +14,7 @@ export class AdduserComponent implements OnInit {
   parm: string;
   private selectedFile: string;
   private url: string;
+  private types: any;
   constructor(private router: Router,
               private routerInfo: ActivatedRoute,
               private userService: UsermanageService,
@@ -25,7 +26,12 @@ export class AdduserComponent implements OnInit {
 
   private initUser() {
     this.parm = this.routerInfo.snapshot.params['id'];
-    console.dir(this.parm);
+    this.types =
+      [
+        {'0': 'admin'},
+        {'1': 'user'},
+      ];
+console.dir(this.parm, this.user.urole);
     if (this.parm === 'add') {
       this.user = new User();
     } else {
@@ -93,5 +99,11 @@ export class AdduserComponent implements OnInit {
         console.log(err.message);
       }
     );
+  }
+
+
+  onchange(key: any) {
+    console.log(key);
+    this.user.urole = this.types[key].vlaue;
   }
 }

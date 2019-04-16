@@ -1,4 +1,4 @@
-<div class="card" style="width:80%;margin-left: 10%;">
+<div class="card" style="width:100%;margin-left: 0px;">
   <img [src]=book.bimage class="card-img-top" alt="...">
   <div class="card-body">
     <h5 class="card-title">《{{book.bname}}》</h5>
@@ -13,12 +13,12 @@
     <li class="list-group-item">评分：{{book.bstar}}</li>
     <li class="list-group-item">简介：
       <br><hr>
-      {{book.bintro}}
+      <div [innerHTML]="book.bintro| tohtml"></div>
     </li>
 
   </ul>
   <div class="card-body">
     <button (click)="toList()" class="btn  btn-block btn-primary">返回</button>
-    <button (click)="toChange(book.bid)"  class="btn btn-block btn-info">修改</button>
+    <button (click)="toUpdate(book.bid)"  class="btn btn-block btn-info">修改</button>
   </div>
 </div>
