@@ -7,17 +7,18 @@
       <img [src]=user.uimage class="rounded" alt="..." >
     </div>
     <ul class="list-group list-group-flush">
-      <li class="list-group-item">用户名:<span class="text-center poscent">{{user.username}}</span></li>
-      <li class="list-group-item">密码:<span class="text-center poscent">{{user.upwd}}</span></li>
-      <li class="list-group-item">角色:<span class="text-center poscent">{{user.urole}}</span></li>
-      <li class="list-group-item">积分:<span class="text-center poscent">{{user.udiscounts}}</span></li>
-      <li class="list-group-item">等级:<span class="text-center poscent">{{user.ugrade}}</span></li>
-      <li class="list-group-item">联系电话:<span class="text-center poscent">{{user.umobile}}</span></li>
-      <li class="list-group-item">地址:<span class="text-center poscent">{{user.uaddress}}</span></li>
+      <li class="list-group-item"><span class="mk1"> 用户名:</span>  <span class="con">{{user.username}}</span></li>
+      <li class="list-group-item"><span class="mk1"> 密码:</span>  <span class="con">{{user.upwd}}</span></li>
+      <li class="list-group-item"><span class="mk1"> 角色:</span>  <span class="con">{{user.urole}}</span></li>
+      <li class="list-group-item"><span class="mk1"> 积分:</span>  <span class="con">{{user.udiscounts}}</span></li>
+      <li class="list-group-item"><span class="mk1"> 等级:</span>  <span class="con">{{user.ugrade}}</span></li>
+      <li class="list-group-item"><span class="mk1"> 联系电话:</span>  <span class="con">{{user.umobile}}</span></li>
+      <li class="list-group-item"><span class="mk1"> 地址:</span>  <span class="con">{{user.uaddress}}</span></li>
       <hr>
     </ul>
   </div>
   <div class="text-center">
-    <button class="btn  btn-info">返回</button>
+    <button class="btn  btn-info" (click)="goBack()">返回</button>
+    <button class="btn  btn-info" (click)="toUpdate(user.uid)">修改</button>
   </div>
 </div>

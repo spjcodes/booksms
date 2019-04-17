@@ -56,7 +56,6 @@ export class AddbookComponent implements OnInit {
 
   onchange(key: any) {
     this.book.btype = this.types[key].vlaue;
-    // this.book.bstype = 'novel';
   }
 
 

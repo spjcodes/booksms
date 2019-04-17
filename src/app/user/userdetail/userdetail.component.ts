@@ -33,4 +33,12 @@ export class UserdetailComponent implements OnInit {
       }
     });
   }
+
+  goBack() {
+    this.router.navigate(['/adminmanage/usermanage']);
+  }
+
+  toUpdate(id: string) {
+    this.router.navigate(['adduser', id]);
+  }
 }

@@ -18,21 +18,23 @@ export class AdduserComponent implements OnInit {
   constructor(private router: Router,
               private routerInfo: ActivatedRoute,
               private userService: UsermanageService,
-              private http: HttpClient) { }
+              private http: HttpClient,
+              ) {
+
+  }
 
   ngOnInit() {
+    console.dir('heool ima fain funck you')
+    this.initSelectValues();
     this.initUser();
   }
 
   private initUser() {
+    console.dir('load init user ....')
     this.parm = this.routerInfo.snapshot.params['id'];
-    this.types =
-      [
-        {'0': 'admin'},
-        {'1': 'user'},
-      ];
-console.dir(this.parm, this.user.urole);
+console.dir('hello world ' + this.parm);
     if (this.parm === 'add') {
+      console.dir('add user');
       this.user = new User();
     } else {
       this.getUser();
@@ -40,6 +42,7 @@ console.dir(this.parm, this.user.urole);
   }
 
   private getUser() {
+    console.dir('get user ')
     this.userService.getUser(this.parm).then((date: any) => {
       if (date !== null) {
         this.user = date;
@@ -103,7 +106,16 @@ console.dir(this.parm, this.user.urole);
 
 
   onchange(key: any) {
-    console.log(key);
-    this.user.urole = this.types[key].vlaue;
+    console.log(this.types);
+    this.user.urole = this.types[key].value;
+    console.dir(this.user);
+  }
+
+  private initSelectValues() {
+    this.types =
+      [
+        {key: '0' , value: 'admin'},
+        {key: '1', value: 'user'},
+      ];
   }
 }
