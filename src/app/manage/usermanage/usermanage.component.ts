@@ -44,7 +44,7 @@ export class UsermanageComponent implements OnInit {
   }
 
   delete(uid: string) {
-    this.userService.deleteUser(uid).then((flage: boolean) => {
+    this.userService.deleteUser(uid).then((flage: any) => {
       if (!flage) {
         alert('删除失败！');
       } else {

@@ -1,7 +1,5 @@
 import { TestBed, inject } from '@angular/core/testing';
 
-import { UsermanageService } from './usermanage.service';
-
 describe('UsermanageService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({

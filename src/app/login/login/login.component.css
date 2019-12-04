@@ -5,8 +5,16 @@
   margin-left: -400px;
   margin-top: -300px;
 }
+.bor{
+  background-color: #000000;
+}
 .logindiv{
-  width:800px;
-  height:600px;
-  border:1px solid red;
+  background: url("../../../assets/imgs/bglogin.jpg");
+  -webkit-background-size: 100%;
+  background-size: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 700px;
+  width:100%;
+  border:1px solid ;
 }

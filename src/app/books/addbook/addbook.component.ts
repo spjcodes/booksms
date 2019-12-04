@@ -62,7 +62,7 @@ export class AddbookComponent implements OnInit {
 
 
   add(book: Book) {
-    this.bookService.addBook(book).then((flage: boolean) => {
+    this.bookService.addBook(book).then((flage: any) => {
       if (flage) {
         this.router.navigate(['']);
       } else {
@@ -135,7 +135,7 @@ console.log('add textbook ....' + this.book.bstype);
 
   save(book: Book) {
     this.getrouter();
-    this.bookService.addBook(book).then((flage: boolean) => {
+    this.bookService.addBook(book).then((flage: any) => {
       if (!flage) {
         alert('添加失败！');
       } else {
@@ -166,10 +166,10 @@ console.log('add textbook ....' + this.book.bstype);
   onUpload() {
     const uploadData = new FormData();
     uploadData.append('uploadfile', this.selectedFile);
-    this.http.post('http://localhost:8081/manage/uploadPic', uploadData).subscribe(
+    this.http.post('http://localhost:8081/public/uploadPic', uploadData).subscribe(
       (data: any) => {
         if ( data != null) {
-          this.url = 'http://localhost:8081/';
+          this.url = 'http://localhost:8081/pic/';
           this.book.bimage = this.url + data.cimg;
           console.dir(JSON.stringify(data));
           console.dir(this.book.bimage);

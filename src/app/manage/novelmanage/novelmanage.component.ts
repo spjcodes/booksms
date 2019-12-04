@@ -34,7 +34,7 @@ export class NovelmanageComponent implements OnInit {
   }
 
   delete(bid: string) {
-    this.bookService.deleteBook(bid).then((flage: boolean) => {
+    this.bookService.deleteBook(bid).then((flage: any) => {
       if (flage) {
         this.getBookList();
       } else {

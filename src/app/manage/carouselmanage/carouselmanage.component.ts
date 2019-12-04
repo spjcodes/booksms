@@ -33,7 +33,7 @@ export class CarouselmanageComponent implements OnInit {
   }
 
   delete(id: string) {
-    this.caroervice.deleteCarosuel(id).then((flage: boolean) => {
+    this.caroervice.deleteCarosuel(id).then((flage: any) => {
       if (!flage) {
         alert ('删除失败！');
       }

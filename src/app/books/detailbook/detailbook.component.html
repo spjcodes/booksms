@@ -1,3 +1,4 @@
+<!--//购买页-->
 <div class="container">
   <div class="row">
     <div class=" col-md-4 " style="background: #0f74a8;">
@@ -17,7 +18,7 @@
         现价：<span style="width:80%; color: red;font-size: large">￥{{book.bnewcost}}元</span>
       </div>
       <br>
-      <button class="btn btn-danger"> 购买</button>
+      <button class="btn btn-danger" [routerLink]="['/gotoalipay']"> 购买</button>
       <button class="btn btn-primary"> 加入购物车</button>
       <br>
       <br>

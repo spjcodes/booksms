@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import {NgbModule, NgbCarouselConfig} from '@ng-bootstrap/ng-bootstrap';
 import { ReactiveFormsModule , FormsModule} from '@angular/forms';
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './pages/navbar/navbar.component';
 import { FooterComponent } from './pages/footer/footer.component';
 import { SearchComponent } from './pages/search/search.component';
 import { CarouselComponent } from './pages/carousel/carousel.component';
@@ -19,7 +18,7 @@ import { DetailcarouselComponent } from './carousel/detailcarousel/detailcarouse
 import { AddhotrecommendComponent } from './hotrecommend/addhotrecommend/addhotrecommend.component';
 import {HotrecommendService} from './services/hotrecommend.service';
 import {ConfigserviceService} from './services/configservice.service';
-import { HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { HotrecommendmanageComponent } from './manage/hotrecommendmanage/hotrecommendmanage.component';
 import { RouterModule, Routes } from '@angular/router';
 import { ListhotrecommendComponent } from './hotrecommend/listhotrecommend/listhotrecommend.component';
@@ -46,23 +45,32 @@ import { DetailuserComponent } from './user/detailuser/detailuser.component';
 import { ProductdetailComponent } from './index/productdetail/productdetail.component';
 import { BookinfoComponent } from './books/bookinfo/bookinfo.component';
 import { UserdetailComponent } from './user/userdetail/userdetail.component';
+import { AlipaypageComponent } from './pay/alipaypage/alipaypage.component';
+import {PaymanageService} from './services/paymanage.service';
+import { InfomanageComponent } from './user/infomanage/infomanage.component';
+import {AuthService} from './services/auth.service';
+import {InterceptorService} from './services/interceptor.service';
+import {AdminGuard} from './guard/admin.guard';
+import {NavbarComponent} from './pages/navbar/navbar.component';
+import {HashLocationStrategy, LocationStrategy} from '@angular/common';
+
 
 export const ROUTES: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
-  {path: 'hotrecommendManage', component: HotrecommendmanageComponent},
+  {path: 'hotrecommendManage', component: HotrecommendmanageComponent, canActivate: [AdminGuard]},
   {path: 'addHorrecommend/:id', component: AddhotrecommendComponent},
   {path: 'detailhotrecommed/:id', component: DetailhotrecommendComponent},
   {path: 'adminmanage', component: AdminmanageComponent,
     children: [
       {path: '' , component: AdminmanageComponent},
       {path: 'hotrecom', component: HotrecommendmanageComponent },
-      {path: 'carouselmanage', component: CarouselmanageComponent},
+      {path: 'carouselmanage', component: CarouselmanageComponent, },
       {path: 'bookmanage', component: NovelmanageComponent},
       {path: 'usermanage', component: UsermanageComponent},
       {path: 'textbookmanage', component: TextbookmanageComponent},
       {path: 'otherbookmanage', component: OtherbookmanageComponent},
-    ]
+    ] , canActivate: [AdminGuard]
   },
   {path: 'pageone', component: PageoneComponent},
   {path: 'addcarousel/:id', component: AddcarosuelComponent},
@@ -78,6 +86,9 @@ export const ROUTES: Routes = [
   {path: 'bookinfo/:id', component: BookinfoComponent},
   {path: 'userdetail/:id', component: UserdetailComponent},
   {path: 'carouseldetail/:id/:type', component: DetailcarouselComponent},
+  {path: 'gotoalipay', component: AlipaypageComponent},
+  {path: 'userinfochange', component: InfomanageComponent},
+  {path: '**', component: PageoneComponent},
 
 ]
 @NgModule({
@@ -117,6 +128,8 @@ export const ROUTES: Routes = [
     ProductdetailComponent,
     BookinfoComponent,
     UserdetailComponent,
+    AlipaypageComponent,
+    InfomanageComponent,
   ],
   imports: [
     BrowserModule,
@@ -139,6 +152,12 @@ export const ROUTES: Routes = [
     BookmanageService,
     UsermanageService,
     PicturemanageService,
+    PaymanageService,
+    AuthService,
+    { provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true },
+    { provide: LocationStrategy, useClass: HashLocationStrategy },
+    InterceptorService,
+    AdminGuard,
   ],
   bootstrap: [AppComponent]
 })

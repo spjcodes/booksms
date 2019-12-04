@@ -3,6 +3,7 @@ import {User} from '../../model/user';
 import {ActivatedRoute, Router} from '@angular/router';
 import {UsermanageService} from '../../services/usermanage.service';
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
+import {AuthService} from '../../services/auth.service';
 
 @Component({
   selector: 'app-adduser',
@@ -19,6 +20,7 @@ export class AdduserComponent implements OnInit {
               private routerInfo: ActivatedRoute,
               private userService: UsermanageService,
               private http: HttpClient,
+              private author: AuthService,
               ) {
 
   }
@@ -62,8 +64,12 @@ console.dir('hello world ' + this.parm);
   }
 
   save(user: User) {
+    console.dir(localStorage.getItem('token'));
+    if (localStorage.getItem('token') == null) {
+      alert('权限不足！ 请登陆后重试！');
+    }
     if (this.parm === 'add') {
-      this.userService.addUser(user).then((flage: boolean) => {
+      this.userService.addUser(user).then((flage: any) => {
         if (!flage) {
           alert('添加用户失败！');
         } else {
@@ -71,7 +77,7 @@ console.dir('hello world ' + this.parm);
         }
       });
     } else {
-      this.userService.updateUser(user).then((flage: boolean) => {
+      this.userService.updateUser(user).then((flage: any) => {
         if (!flage) {
           alert('添加用户失败！');
         } else {
@@ -88,10 +94,10 @@ console.dir('hello world ' + this.parm);
   onUpload() {
     const uploadData = new FormData();
     uploadData.append('uploadfile', this.selectedFile);
-    this.http.post('http://localhost:8081/manage/uploadPic', uploadData).subscribe(
+    this.http.post('http://localhost:8081/manage/uploadPic', uploadData, this.author.renewHttpheaders()).subscribe(
       (data: any) => {
         if ( data != null) {
-          this.url = 'http://localhost:8081/';
+          this.url = 'http://localhost:8081/pic/';
           this.user.uimage = this.url + data.cimg;
           console.dir(JSON.stringify(data));
           console.dir(this.user.uimage);

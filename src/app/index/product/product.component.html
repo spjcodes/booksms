@@ -1,10 +1,15 @@
 <div class="col-lg-3 col-sm-3 col-xl-3 card pro" *ngFor="let h of hotrecommends" >
  <a (click)="toProductDetail(h.hid)">
-   <img [src]=h.himage class="card-img-top" alt="...">
+   <img [src]=h.himage class="card-img-top" width="220" height="220" alt="...">
+   <!--<img src="../../../assets/imgs/booktest.jpg" e class="card-img-top" width="220" height="220" alt="...">-->
  </a>
-  <div class="card-body">
-    <h5 class="card-title">{{h.hname}}</h5>
-    <h6 class="card-subtitle mb-2 text-muted">{{h.hstar}}></h6>
+  <div class="card-body" style="height: 150px;">
+    <p class="card-text">
+      <span style="color: red;font-size: 24px;padding: 0px;margin: 0px;">￥{{h.hcost}}</span>
+    </p>
+    <span class="card-title" style="font-size: 14px;margin: 0px;padding: 0px;" >{{h.hname}}</span>
+
+    <h6 class="card-subtitle mb-2 text-muted" style="margin-top: 8px;">{{h.hstar}}星</h6>
     <!--<p class="card-text">{{h.hintro}}</p>-->
   </div>
 </div>

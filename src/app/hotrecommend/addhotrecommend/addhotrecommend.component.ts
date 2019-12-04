@@ -36,7 +36,7 @@ export class AddhotrecommendComponent implements OnInit {
   save(value: any) {
     console.dir(value);
     if (this.parm === 'add') {
-      this.hotservice.addHotrecomment(value).then((flage: boolean) => {
+      this.hotservice.addHotrecomment(value).then((flage: any) => {
         if (flage) {
           this.router.navigate(['adminmanage/hotrecom']);
         } else {
@@ -44,7 +44,7 @@ export class AddhotrecommendComponent implements OnInit {
         }
       });
     } else {
-      this.hotservice.updateHotrecommend(value).then((flage: boolean) => {
+      this.hotservice.updateHotrecommend(value).then((flage: any) => {
         if (flage) {
           this.router.navigate(['adminmanage/hotrecom']);
         } else {
@@ -78,10 +78,10 @@ export class AddhotrecommendComponent implements OnInit {
   onUpload() {
     const uploadData = new FormData();
     uploadData.append('uploadfile', this.selectedFile);
-    this.http.post('http://localhost:8081/manage/uploadPic', uploadData).subscribe(
+    this.http.post('http://localhost:8081/public/uploadPic', uploadData).subscribe(
       (data: any) => {
         if ( data != null) {
-          this.url = 'http://localhost:8081/';
+          this.url = 'http://localhost:8081/pic/';
           this.hotrecommend.himage = this.url + data.cimg;
           console.dir(JSON.stringify(data));
         } else {

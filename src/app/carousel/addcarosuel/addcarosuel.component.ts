@@ -37,7 +37,7 @@ export class AddcarosuelComponent implements OnInit {
 
   save(c: Carousel) {
     if (this.parm === 'add') {
-      this.carouservice.addCarousel(c).then((flage: boolean) => {
+      this.carouservice.addCarousel(c).then((flage: any) => {
 console.dir(c);
         if (!flage) {
           alert('添加失败！');
@@ -46,7 +46,7 @@ console.dir(c);
         }
       });
     } else {
-        this.carouservice.updateCarosuel(c).then((flage: boolean) => {
+        this.carouservice.updateCarosuel(c).then((flage: any) => {
           if (!flage) {
             alert('修改失败！');
           } else {
@@ -80,10 +80,10 @@ console.dir(c);
   onUpload() {
     const uploadData = new FormData();
     uploadData.append('uploadfile', this.selectedFile);
-    this.http.post('http://localhost:8081/manage/uploadPic', uploadData).subscribe(
+    this.http.post('http://localhost:8081/public/uploadPic', uploadData).subscribe(
       (data: any) => {
         if ( data != null) {
-          this.url = 'http://localhost:8081/';
+          this.url = 'http://localhost:8081/pic/';
           this.carousel.cimg = this.url + data.cimg;
           console.dir(JSON.stringify(data));
         } else {

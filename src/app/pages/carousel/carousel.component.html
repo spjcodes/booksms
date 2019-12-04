@@ -1,6 +1,7 @@
 <ngb-carousel *ngIf="images">
   <ng-template ngbSlide *ngFor="let c of carousels">
     <a (click)="toDetail(c.cid)"><img [src]="c.cimg" alt="Random slide"></a>
+    <!--<a (click)="toDetail(c.cid)"><img src="../../../assets/imgs/carouseltest.jpg" alt="Random slide"></a>-->
     <div class="carousel-caption">
       <h3><a (click)="toDetail(c.cid)">{{c.cname}}</a></h3>
       <p>><a (click)="toDetail(c.cid)">{{c.cintro}}</a></p>

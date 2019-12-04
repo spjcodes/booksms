@@ -3,13 +3,19 @@ import {ConfigserviceService} from './configservice.service';
 import {HttpClient} from '@angular/common/http';
 import {Book} from '../model/book';
 import {b} from '@angular/core/src/render3';
+import {AuthService} from './auth.service';
 
 @Injectable()
 export class BookmanageService {
 
+  httpOptions: any;
   constructor(private config: ConfigserviceService,
-              private http: HttpClient
-              ) { }
+              private http: HttpClient,
+              private authService: AuthService
+              ) {
+    this.httpOptions = this.authService.renewHttpheaders();
+    console.dir(this.httpOptions);
+  }
   private addBookURL = this.config.hsot + '/addBook';
   addBook(book: Book) {
     let p = {
@@ -25,7 +31,7 @@ export class BookmanageService {
       'bstype': book.bstype,
       'bstar': book.bstar
     }
-    return this.http.post(this.addBookURL, p).toPromise();
+    return this.http.post(this.addBookURL, p, this.httpOptions).toPromise();
   }
 
   private deleteBookURL = this.config.hsot + '/deleteBook';
@@ -33,7 +39,7 @@ export class BookmanageService {
     let p = {
       'bid': id
     }
-    return this.http.post(this.deleteBookURL, p).toPromise();
+    return this.http.post(this.deleteBookURL, p, this.httpOptions).toPromise();
   }
 
   private updateBookURL = this.config.hsot + '/updateBook';
@@ -41,10 +47,10 @@ export class BookmanageService {
     let p = {
       'bid': id
     }
-    return this.http.post(this.updateBookURL, p).toPromise();
+    return this.http.post(this.updateBookURL, p, this.httpOptions).toPromise();
   }
 
-  private getBookURL = this.config.hsot + '/getBook';
+  private getBookURL = this.config.hostauth + '/getBook';
   getBook(id: string) {
     let p = {
       'bid': id
@@ -52,12 +58,12 @@ export class BookmanageService {
     return this.http.post(this.getBookURL, p).toPromise();
   }
 
-  private getBookListURL = this.config.hsot + '/getBookList';
+  private getBookListURL = this.config.hostauth + '/getBookList';
   getBookLsit() {
     return this.http.get(this.getBookListURL).toPromise();
   }
 
-  private getBookListByTypeURL = this.config.hsot + '/getBooksListByType';
+  private getBookListByTypeURL = this.config.hostauth + '/getBooksListByType';
   getBookListByType(type: string) {
  console.log(type)
     let p = {
@@ -66,9 +72,9 @@ export class BookmanageService {
     return this.http.post(this.getBookListByTypeURL, p ).toPromise();
   }
 
-  private getBookListByBstypeURL = this.config.hsot + '/getBookListByBstype';
-  getBookListByBstype(Bstype: string){
-    return this.http.post(this.getBookListByBstypeURL, {"bstype": Bstype}).toPromise();
+  private getBookListByBstypeURL = this.config.hostauth + '/getBookListByBstype';
+  getBookListByBstype(Bstype: string) {
+    return this.http.post(this.getBookListByBstypeURL, {'bstype': Bstype}).toPromise();
   }
 
 

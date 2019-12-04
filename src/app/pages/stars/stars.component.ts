@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StarsComponent implements OnInit {
   stars: Array<boolean>;
-  private rating: number;
+  rating: number;
   constructor() { }
 
   ngOnInit() {

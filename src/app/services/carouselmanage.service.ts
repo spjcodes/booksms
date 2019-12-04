@@ -1,24 +1,24 @@
 import { Injectable } from '@angular/core';
 import {ConfigserviceService} from './configservice.service';
-import {HttpClient} from '@angular/common/http';
-import {p} from '@angular/core/src/render3';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Carousel} from '../model/carousel';
+import {AuthService} from './auth.service';
 
 @Injectable()
 export class CarouselmanageService {
-
   constructor(private config: ConfigserviceService,
-              private http: HttpClient) { }
-
-  private getCarouselURL = this.config.hsot + '/getCarousel';
-  getCarousel(id: string){
-    let p ={
+              private http: HttpClient,
+              private author: AuthService) {  }
+  private  httpOptions = this.author.renewHttpheaders();
+  private getCarouselURL = this.config.hostauth + '/getCarousel';
+  getCarousel(id: string) {
+    let p = {
       'id': id,
-    }
+    };
       return this.http.post(this.getCarouselURL, p).toPromise();
   }
   private addCarouselURl = this.config.hsot + '/addCarousel';
-  addCarousel(carosuel: Carousel){
+  addCarousel(carosuel: Carousel) {
     let p = {
       'cid': carosuel.cid,
       'cname': carosuel.cname,
@@ -46,19 +46,20 @@ export class CarouselmanageService {
       'ccontent': c.ccontent,
       'cimg': c.cimg
     };
-    return this.http.post(this.updateCarouselURL, p).toPromise();
+    return this.http.post(this.updateCarouselURL, p, this.httpOptions).toPromise();
   }
 
-  private getCarouselListURL = this.config.hsot + '/getCarouselList';
+  private getCarouselListURL = this.config.hostauth + '/getCarouselList';
+
   getCarosuelList() {
-    return this.http.get(this.getCarouselListURL).toPromise();
+    return this.http.get(this.getCarouselListURL, ).toPromise();
   }
 
-  private getCarouselUTL = this.config.hsot + '/getCarousel';
+  private getCarouselUTL = this.config.hostauth + '/getCarousel';
   getCarosuel(parm: string) {
     let p = {
       'cid': parm
-    }
+    };
     return this.http.post(this.getCarouselURL, p).toPromise();
   }
 }

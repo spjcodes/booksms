@@ -22,7 +22,7 @@ export class RegisterComponent implements OnInit {
 
   onRegiest(value: any) {
     console.dir('form value :' + value);
-    this.userService.addUser(value).then((flage: boolean) => {
+    this.userService.addUser(value).then((flage: any) => {
       if (flage) {
         console.dir(value);
         this.router.navigate(['login']);
