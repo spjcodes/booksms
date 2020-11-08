@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {Router, RouterModule} from '@angular/router';
 
 @Component({
   selector: 'app-adminmanage',
@@ -7,9 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminmanageComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
+    this.router.navigate(['adminmanage/carouselmanage']);
   }
 
 }

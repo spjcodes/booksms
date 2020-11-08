@@ -15,6 +15,7 @@ export class LoginComponent implements OnInit {
 
   constructor(private router: Router,
               private authService: AuthService,
+              private userSer: UsermanageService
 
               ) { }
 
@@ -27,9 +28,7 @@ export class LoginComponent implements OnInit {
   }
 
   login(username: any, upwd: any) {
-console.log(username + ' *********  ' + upwd);
     this.authService.login(username, upwd).then((date: any) => {
-console.dir(date);
       if (date.msg === 'erro') {
         alert('登录失败！');
       } else if (date.msg === 'ok') {
@@ -39,6 +38,12 @@ console.dir(date);
       }
       // 将token存储入浏览器localStorage中
       localStorage.setItem('token', date.token);
+      const u = new User();
+      u.username = username;
+      u.upwd = upwd;
+      this.userSer.getUserIdByUserInfo(u).then((data: any) => {
+        localStorage.setItem('userId', data.id);
+      });
     });
   }
 

@@ -24,7 +24,16 @@ export class InfomanageComponent implements OnInit {
 
 
   private getUser() {
-    this.getUserid();
+    this.user = new User();
+    this.userService.getUser(localStorage.getItem('userId')).then((data: any) => {
+      if (data !== null) {
+        this.user = data;
+        console.dir('user info:' + this.user);
+      } else {
+        alert('获取用户信息失败！');
+      }
+    });
+   /* this.getUserid();
     this.userService.getUserId().then((data: any) => {
       console.log('start get user .................;;;;;;;;;;;id' + this.parm)
       if (data !== null) {
@@ -33,7 +42,7 @@ export class InfomanageComponent implements OnInit {
       } else {
         alert('获取用户信息失败！');
       }
-    });
+    });*/
   }
 
   goBack() {
@@ -45,6 +54,7 @@ export class InfomanageComponent implements OnInit {
       this.parm = data.id;
       console.log(this.parm);
     });
+
   }
 
   toUpdate(uid: string) {

@@ -22,7 +22,7 @@ export class HotrecommendService {
       'hintro': hotrcommend.hintro,
       'hstar': hotrcommend.hstar,
       'hcost': hotrcommend.hcost
-    }
+    };
     return this.http.post(this.addHotrecommendURL, p, this.httpOptions).toPromise();
   }
 

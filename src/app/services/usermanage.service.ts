@@ -84,8 +84,17 @@ export class UsermanageService {
    }
 
    // private getUserIdURL = this.config.author + '/getUserId';
-   private getUserIdURL = 'http://localhost:8081/auth/getUserId';
+   private getUserIdURL = this.config.author + '/getUserId';
    getUserId() {
      return this.http.get(this.getUserIdURL ).toPromise();
    }
+
+   private getUserIdByUserInfoUrl = this.config.author + '/getUserIdByUserInfo'
+  getUserIdByUserInfo(u: User) {
+     const p = {
+       'username': u.username,
+       'upwd': u.upwd
+     };
+     return this.http.post(this.getUserIdByUserInfoUrl, p).toPromise();
+  }
 }
