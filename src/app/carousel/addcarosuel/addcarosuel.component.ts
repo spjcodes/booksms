@@ -80,10 +80,10 @@ console.dir(c);
   onUpload() {
     const uploadData = new FormData();
     uploadData.append('uploadfile', this.selectedFile);
-    this.http.post('http://localhost:8081/public/uploadPic', uploadData).subscribe(
+    this.http.post('http://www.jiayeli.cn:8081/public/uploadPic', uploadData).subscribe(
       (data: any) => {
         if ( data != null) {
-          this.url = 'http://localhost:8081/pic/';
+          this.url = 'http://www.jiayeli.cn:8081/pic/';
           this.carousel.cimg = this.url + data.cimg;
           console.dir(JSON.stringify(data));
         } else {

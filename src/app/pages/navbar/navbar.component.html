@@ -53,6 +53,20 @@
         </div>
       </li>
 
+
+
+      <li class="nav-item">
+        <a class="nav-link " [routerLink]="['textbooks', 'other']"  tabindex="-1" aria-disabled="true">其他书籍</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link " href="#" tabindex="-1" aria-disabled="true">共享图书</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link " [routerLink]="['login']" tabindex="-1" aria-disabled="true">登陆/注册</a>
+      </li>
+
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           管理
@@ -64,18 +78,6 @@
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" [routerLink]="['adminmanage']">管理员管理</a>
         </div>
-      </li>
-
-      <li class="nav-item">
-        <a class="nav-link " [routerLink]="['textbooks', 'otherbooks']"  tabindex="-1" aria-disabled="true">其他书籍</a>
-      </li>
-
-      <li class="nav-item">
-        <a class="nav-link " href="#" tabindex="-1" aria-disabled="true">共享图书</a>
-      </li>
-
-      <li class="nav-item">
-        <a class="nav-link " [routerLink]="['login']" tabindex="-1" aria-disabled="true">登陆/注册</a>
       </li>
     </ul>
 

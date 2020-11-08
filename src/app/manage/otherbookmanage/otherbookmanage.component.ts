@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./otherbookmanage.component.css']
 })
 export class OtherbookmanageComponent implements OnInit {
-  
+
   novel: Book;
   novels: Array<Book>;
 
@@ -22,7 +22,7 @@ export class OtherbookmanageComponent implements OnInit {
   }
 
   add() {
-    this.router.navigate(['addbook', 'textbookadd']);
+    this.router.navigate(['addbook', 'otheradd']);
   }
 
   update(bid: string) {

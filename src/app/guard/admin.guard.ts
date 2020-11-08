@@ -12,6 +12,7 @@ export class AdminGuard implements CanActivate, CanActivateChild {
 
       this.authservice.getRole()
         .then((user: any) => {
+
             if (user.role === 'admin') {
             resolve(true);
           } else {
@@ -46,4 +47,5 @@ export class AdminGuard implements CanActivate, CanActivateChild {
     });
   }
 
-}
+};
+

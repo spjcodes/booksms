@@ -22,7 +22,7 @@ intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<an
 
 
     let token=localStorage.getItem("token");
-    //.indexOf("/public/")==-1)和一个不存在的字符串做比较，返回的是-1
+    //.indexOf("/public/")==-1)和一个不存在的字符串做比较，返回的是-1，说明包含/public/
     if (token != null && request.url.indexOf('/public/') === -1 || token != null && request.url.indexOf('/auth/') === -1
       || token != null && request.url.indexOf('/alipay/') === -1 || token != null && request.url.indexOf('/manage/') === -1
       || token != null && request.url.indexOf('/manage/pic/') === -1) {

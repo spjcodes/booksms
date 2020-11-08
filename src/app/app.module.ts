@@ -52,7 +52,8 @@ import {AuthService} from './services/auth.service';
 import {InterceptorService} from './services/interceptor.service';
 import {AdminGuard} from './guard/admin.guard';
 import {NavbarComponent} from './pages/navbar/navbar.component';
-import {HashLocationStrategy, LocationStrategy} from '@angular/common';
+import {TestService} from './services/test.service';
+import { PagtestComponent } from './test/pagtest/pagtest.component';
 
 
 export const ROUTES: Routes = [
@@ -86,11 +87,13 @@ export const ROUTES: Routes = [
   {path: 'bookinfo/:id', component: BookinfoComponent},
   {path: 'userdetail/:id', component: UserdetailComponent},
   {path: 'carouseldetail/:id/:type', component: DetailcarouselComponent},
-  {path: 'gotoalipay', component: AlipaypageComponent},
+  {path: 'gotoalipay/:id', component: AlipaypageComponent},
   {path: 'userinfochange', component: InfomanageComponent},
+  {path: 'test', component: PagtestComponent},
   {path: '**', component: PageoneComponent},
 
 ]
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -130,6 +133,7 @@ export const ROUTES: Routes = [
     UserdetailComponent,
     AlipaypageComponent,
     InfomanageComponent,
+    PagtestComponent,
   ],
   imports: [
     BrowserModule,
@@ -155,9 +159,10 @@ export const ROUTES: Routes = [
     PaymanageService,
     AuthService,
     { provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true },
-    { provide: LocationStrategy, useClass: HashLocationStrategy },
+    // { provide: LocationStrategy, useClass: HashLocationStrategy },
     InterceptorService,
     AdminGuard,
+    TestService,
   ],
   bootstrap: [AppComponent]
 })

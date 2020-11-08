@@ -29,4 +29,8 @@ export class DetailbookComponent implements OnInit {
       }
     });
   }
+
+  buy() {
+    alert('购买成功');
+  }
 }

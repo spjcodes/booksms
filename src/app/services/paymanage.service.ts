@@ -16,7 +16,7 @@ export class PaymanageService {
       return this.sanitizer.bypassSecurityTrustHtml(strHTML);
   }
 
-  private gotoPayPageURL = 'http://localhost:8081/alipay/gotoPayPage';
+  private gotoPayPageURL = 'http://www.jiayeli.cn:8081/alipay/gotoPayPage';
   getAlipayForm() {
     let p = {};
     return this.http.post(this.gotoPayPageURL, p).toPromise();

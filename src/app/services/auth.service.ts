@@ -44,7 +44,8 @@ export class AuthService {
       });
   }
 
-  private getRoleUrl = 'http://localhost:8081/auth/getRole';
+  // private getRoleUrl = 'http://www.jiayeli.cn:8081/auth/getRole';
+  private getRoleUrl = this.config.author + '/getRole';
   getRole() {
     return this.http.get(this.getRoleUrl).toPromise();
   }

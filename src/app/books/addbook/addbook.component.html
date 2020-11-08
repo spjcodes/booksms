@@ -38,7 +38,7 @@
         </div>
 
       </div>
-      
+
       <div [hidden] = "textbookishidden" class="input-group mb-3">
           <select  (change)="onchange($event.target.value)" class="custom-select" >
             <option selected>请选择类型</option>
@@ -54,17 +54,18 @@
             <option value="10">秘书学</option>
             <option value="11">市场营销</option>
             <option value="12">人力资源管理</option>
+            <option value="12">其它</option>
           </select>
           <div class="input-group-append">
             <label class="input-group-text"
                    placeholder="类型" for="inputGroupSelect02">选择</label>
           </div>
-  
+
         </div>
         <!-- <div class="input-group mb-3">
            <input [ngModel]="book.btype" name="btype" type="text" class="form-control form-control-lg martop"
            placeholder="请输入类型">
-    
+
         </div> -->
 
             <label class="marginLef">作者</label>

@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import {ConfigserviceService} from './configservice.service';
 import {HttpClient} from '@angular/common/http';
 import {Book} from '../model/book';
-import {b} from '@angular/core/src/render3';
 import {AuthService} from './auth.service';
 
 @Injectable()

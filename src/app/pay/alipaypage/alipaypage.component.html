@@ -1,18 +1,18 @@
 <div class="card">
-  <!-- <div class="card-header">
+   <div class="card-header">
     支付宝支付
   </div>
   <div class="card-body">
     <div class="card">
       <ul class="list-group list-group-flush">
-        <li class="list-group-item">商户订单号 ：<span></span></li>
-        <li class="list-group-item">订单名称 ：<span></span></li>
-        <li class="list-group-item">付款金额 ：<span></span></li>
-        <li class="list-group-item">商品描述：<span></span></li>
+        <li class="list-group-item">商户订单号 ：<span>{{product.bid}}</span></li>
+        <li class="list-group-item">订单名称 ：<span>{{product.bname}}</span></li>
+        <li class="list-group-item">付款金额 ：<span>{{product.bnewcost}}</span></li>
+        <li class="list-group-item">商品描述：<span>{{product.bintro}}</span></li>
         <li class="list-group-item"><button (click)="gotopagepay()" style="width: 100%; height: 60px; alignment: center; background: #02AAF1" type="submit">立即支付</button></li>
       </ul>
     </div>
-  </div> -->
+  </div>
 
-  <div style="border: 1px red solid;" class="row" [innerHTML]="gotopagepay()"></div>
+  <div style="border: 1px red solid;" class="row" (click)="gotopagepay()"></div>
 </div>

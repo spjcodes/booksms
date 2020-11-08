@@ -1,3 +1,105 @@
-<p>
-  otherbooks works!
-</p>
+<div class="card text-center">
+
+  <div class="card-header">
+    <span  class= " glyphicon glyphicon-chevron-left"></span>
+    {{booksType}}类信息编辑
+  </div>
+  <div class="card-body">
+    <form >
+      <label class="marginLef">书名</label>
+      <input  [(ngModel)]="book.bname" name="bname" class="form-control form-control-lg martop" type="text"
+              placeholder="书名">
+
+
+      <label class="marginLef">封面图片</label>
+      <div class="input-group mb-3">
+        <div class="custom-file">
+          <input type="file" class="custom-file-input" (change)="onFileChanged($event)">
+          <label class="custom-file-label"  >选择图片</label>
+        </div>
+        <div class="input-group-append">
+          <button class="input-group-text" (click)="onUpload()" >上传</button>
+        </div>
+      </div>
+
+      <label class="marginLef">类型</label>
+      <div [hidden] = novelishidden class="input-group mb-3">
+        <select  (change)="onchange($event.target.value)" class="custom-select"  id="inputGroupSelect02">
+          <option selected>请选择类型</option>
+          <option value="0">古典小说</option>
+          <option value="2">侦探,推理,悬疑小说</option>
+          <option value="3">武侠小说</option>
+          <option value="4">科幻小说</option>
+          <option value="5">其他</option>
+        </select>
+        <div class="input-group-append">
+          <label class="input-group-text"
+                 placeholder="类型" for="inputGroupSelect02">选择</label>
+        </div>
+
+      </div>
+
+      <div [hidden] = "textbookishidden" class="input-group mb-3">
+        <select  (change)="onchange($event.target.value)" class="custom-select" >
+          <option selected>请选择类型</option>
+          <option value="0">财务会计教育</option>
+          <option value="2">广告学</option>
+          <option value="3">公共事业管理</option>
+          <option value="4">工商管理类</option>
+          <option value="5">汉语言文学</option>
+          <option value="6">汉语国际教育</option>
+          <option value="7">计算机类</option>
+          <option value="8">旅游管理</option>
+          <option value="9">老挝语</option>
+          <option value="10">秘书学</option>
+          <option value="11">市场营销</option>
+          <option value="12">人力资源管理</option>
+        </select>
+        <div class="input-group-append">
+          <label class="input-group-text"
+                 placeholder="类型" for="inputGroupSelect02">选择</label>
+        </div>
+
+      </div>
+      <!-- <div class="input-group mb-3">
+         <input [ngModel]="book.btype" name="btype" type="text" class="form-control form-control-lg martop"
+         placeholder="请输入类型">
+
+      </div> -->
+
+      <label class="marginLef">作者</label>
+      <input  [(ngModel)]="book.bauthor" name="bauthor" class="form-control form-control-lg martop" type="text"
+              placeholder="作者">
+      <label class="marginLef">版本号</label>
+      <input  [(ngModel)]="book.bversion" name="bversion" class="form-control form-control-lg martop" type="text"
+              placeholder="版本号">
+      <label class="marginLef">原价</label>
+      <input  [(ngModel)]="book.boldcost" name="boldcost" class="form-control form-control-lg martop" type="text"
+              placeholder="原价">
+      <label class="marginLef">现价</label>
+      <input  [(ngModel)]="book.bnewcost" name="bnewcost" class="form-control form-control-lg martop" type="text"
+              placeholder="现价">
+      <label class="marginLef">推荐星数</label>
+      <input  [(ngModel)]="book.bstar" name="bstar"  class="form-control form-control-lg martop" type="text"
+              placeholder="推荐星数">
+
+    </form>
+
+    <p>
+      <label class="flotleft">内容编辑</label>
+      <br>
+    </p>
+    <ckeditor  [(ngModel)]="book.bintro"  name="bintro"  debounce="500" [config]="config">
+    </ckeditor>
+
+    <div >
+      <button class="btn btn-primary" (click)="save(book)">提交</button>
+      <button class="btn btn-danger" (click)="reset()" >重置</button>
+    </div>
+
+  </div>
+
+  <div class="card-footer text-muted">
+    admin
+  </div>
+</div>
