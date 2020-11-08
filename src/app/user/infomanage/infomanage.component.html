@@ -3,7 +3,7 @@
     您好！<span style="color: red;">{{user.username}}</span>
   </div>
   <div class="card-body">
-    <div class="text-center" style="width: 120px; height:120px;overflow: hidden; float: none;margin-left: auto;margin-right:auto">
+    <div class="text-center" style="border-radius:50%; width: 120px; height:120px;overflow: hidden; float: none;margin-left: auto;margin-right:auto">
       <img [src]=user.uimage class="rounded" alt="..." >
     </div>
     <ul class="list-group list-group-flush">
@@ -21,6 +21,6 @@
     <button class="btn  btn-info" (click)="goBack()">返回</button>
     <button class="btn  btn-info" (click)="toUpdate(user.uid)">修改</button>
   </div>
-</div> 
+</div>
 
 

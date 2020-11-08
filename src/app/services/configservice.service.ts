@@ -7,7 +7,9 @@ export class ConfigserviceService {
   gethost: string;
   hostauth: string;
   author: string;
+  baseUrl: string;
   constructor() {
+    this.baseUrl = 'http://localhost/4200';
     this.hsot = 'http://localhost:8081/manage';
     this.hostauth = 'http://localhost:8081/public';
     this.gethost = 'http://localhost:8081/public';

@@ -86,6 +86,7 @@ export const ROUTES: Routes = [
   {path: 'productdetail/:id', component: ProductdetailComponent},
   {path: 'bookinfo/:id', component: BookinfoComponent},
   {path: 'userdetail/:id', component: UserdetailComponent},
+  {path: 'edituser/:id', component: EdituserComponent},
   {path: 'carouseldetail/:id/:type', component: DetailcarouselComponent},
   {path: 'gotoalipay/:id', component: AlipaypageComponent},
   {path: 'userinfochange', component: InfomanageComponent},

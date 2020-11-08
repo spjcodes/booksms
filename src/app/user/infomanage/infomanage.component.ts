@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {User} from '../../model/user';
 import {UsermanageService} from '../../services/usermanage.service';
 import {ActivatedRoute, Router} from '@angular/router';
+import {ConfigserviceService} from '../../services/configservice.service';
 
 @Component({
   selector: 'app-infomanage',
@@ -15,6 +16,7 @@ export class InfomanageComponent implements OnInit {
   constructor(private userService: UsermanageService,
               private router: Router,
               private routerInfo: ActivatedRoute,
+              private config: ConfigserviceService
   ) {
   }
 
@@ -58,6 +60,6 @@ export class InfomanageComponent implements OnInit {
   }
 
   toUpdate(uid: string) {
-
+    this.router.navigate(['edituser', uid]);
   }
 }
