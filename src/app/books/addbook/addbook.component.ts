@@ -81,9 +81,9 @@ console.log('add novel ....' + this.book.bstype);
         {key: '0', vlaue: 'modern'},
         {key: '1', vlaue: 'classical'},
         {key: '2', vlaue: 'detective'},
-        {key: '4', vlaue: 'gongfu'},
-        {key: '5', vlaue: 'science'},
-        {key: '6', vlaue: 'nother'},
+        {key: '3', vlaue: 'gongfu'},
+        {key: '4', vlaue: 'science'},
+        {key: '5', vlaue: 'nother'},
       ];
     } else if (this.parm === 'textbookadd') {
       this.book = new Book();
@@ -93,7 +93,8 @@ console.log('add textbook ....' + this.book.bstype);
         {key: '0', vlaue: 'financial'},
         {key: '1', vlaue: 'advertising'},
         {key: '2', vlaue: 'pubmanser'},
-        {key: '4', vlaue: 'businessadmin'},
+        {key: '3', vlaue: 'businessadmin'},
+        {key: '4', vlaue: 'chinlanlite'},
         {key: '5', vlaue: 'chinlanlite'},
         {key: '6', vlaue: 'computer'},
         {key: '7', vlaue: 'toumanagement'},
@@ -101,6 +102,7 @@ console.log('add textbook ....' + this.book.bstype);
         {key: '9', vlaue: 'secrescien'},
         {key: '10', vlaue: 'marketing'},
         {key: '11', vlaue: 'humanresource'},
+        {key: '12', vlaue: 'other'},
       ];
     } else if (this.parm === 'otheradd') {
       this.book = new Book();
