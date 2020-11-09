@@ -106,7 +106,7 @@ export class OtherbooksComponent implements OnInit {
     } else if (this.parm === 'otheradd') {
       this.book = new Book();
       this.book.bstype = 'other';
-      alert('添加其他书籍');
+      // alert('添加其他书籍');
     } else {
       this.getBook();
     }
