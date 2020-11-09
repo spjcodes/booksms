@@ -80,6 +80,7 @@ export const ROUTES: Routes = [
   {path: 'detailbook/:id', component: DetailbookComponent},
   {path: 'adduser/:id', component: AdduserComponent},
   {path: 'novelbooks/:id', component: NovelbooksComponent},
+  {path: 'searchResult/:id', component: SearchComponent},
   {path: 'textbooks/:id', component: TextbooksComponent},
   {path: 'otherbooks/:id', component: OtherbooksComponent},
   {path: 'bookdetail/:id', component: DetailbookComponent},

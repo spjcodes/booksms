@@ -77,4 +77,9 @@ export class BookmanageService {
   }
 
 
+  private  getSearchResultURL = this.config.gethost + '/getBooksBySolrEngine?keyWorld=';
+  getSearchResult(paramet: string) {
+
+    return this.http.post(this.getSearchResultURL + paramet, {}).toPromise();
+  }
 }

@@ -7,12 +7,13 @@ import {Router} from '@angular/router';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
+  keyWorld: string;
 
   constructor(private router: Router) {
   }
 
   ngOnInit() {
-
+  // this.keyWorld = '1111';
 
   }
 
@@ -21,5 +22,12 @@ export class NavbarComponent implements OnInit {
     this.router.navigate(['novelbooks', address]);
 
 
+  }
+
+  gotoSearch(keyWorld: string) {
+    // const wd = document.getElementById('kwd');
+    // const keyword = wd.nodeValue;
+    // alert(keyWorld);
+    this.router.navigate(['searchResult', keyWorld]);
   }
 }

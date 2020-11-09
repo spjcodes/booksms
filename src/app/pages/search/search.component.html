@@ -1,3 +1,41 @@
-<p>
-  search works!
-</p>
+<h5>
+  <span style="font-size: 20px; color: red"> {{paramet}} </span>  搜索结果如下
+</h5>
+<hr> <br>
+<div class="row" >
+
+
+      <div class="row" *ngIf="bookList != null">
+        <div class="col-lg-3 col-sm-3 col-xl-3 card pro" *ngFor="let b of bookList" >
+          <a (click)="toBookDetail(b.bid)">
+            <img [src]=b.bimage class="card-img-top" width="220" height="220" alt="...">
+            <!--<img src="../../../assets/imgs/booktest.jpg" class="card-img-top" width="220" height="220" alt="...">-->
+          </a>
+          <div class="card-body">
+            <p class="card-text">
+              <span style="color: red;font-size: 24px;">￥{{b.bnewcost}}</span>
+              <span style="font-size: 12px;"><s>￥{{b.boldcost}}&nbsp;</s> </span>
+            </p>
+            <a (click)="toBookDetail(b.bid)">
+              <h5 class="card-title">{{b.bname}}</h5>
+            </a>
+            <a (click)="toBookDetail(b.bid)">
+              <p class="card-title">{{b.bauthor}}</p>
+            </a>
+
+            <h6 class="card-subtitle mb-2 text-muted">{{b.bstar}}星</h6>
+            <a (click)="toBookDetail(b.bid)">
+            </a>
+          </div>
+        </div>
+
+
+      </div>
+
+
+  <div *ngIf="bookList == null || bookList.length <= 0" >
+    <h1 >小主，没找到你要的商品呢/(ㄒoㄒ)/~~ 看看别的吧</h1>
+  </div>
+
+
+</div>
