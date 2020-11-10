@@ -10,8 +10,8 @@
         <td>名称</td>
         <td>价格</td>
         <td>买家id</td>
-<!--        <td>作者</td>-->
-        <td>购买时间</td>
+        <td>联系电话</td>
+        <td>下单时间</td>
         <td>操作</td>
       </tr>
       <tr *ngFor="let o of orders">
@@ -24,9 +24,9 @@
       </td><td >
         {{o.opurchaser}}
       </td><td >
-<!--        {{o.ovendor}}-->
+        {{o.ovendor}}
       </td><td >
-        {{o.obuytiem}}
+        {{o.obuytime | date:'yyyy-MM-dd HH:mm'}}
       </td>
       <!--  <td>
           <button class="btn btn-warning" (click)="update(n.bid)">修改</button>

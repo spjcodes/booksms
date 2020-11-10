@@ -11,20 +11,18 @@ import {User} from '../../model/user';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  // u: User;
+  u: User;
   constructor(private userService: UsermanageService,
               private router: Router,
-              ) { }
+  ) { }
 
   ngOnInit() {
-    // this.u = new User();
+    this.u = new User();
   }
 
   onRegiest(value: any) {
-    console.dir('form value :' + value);
     this.userService.addUser(value).then((flage: any) => {
       if (flage) {
-        console.dir(value);
         this.router.navigate(['login']);
       } else {
         alert('注册失败！请重试或联系管理员');

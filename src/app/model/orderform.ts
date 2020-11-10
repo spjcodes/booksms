@@ -4,5 +4,5 @@ export class Orderform {
   ocost: number;
   ovendor: string;
   opurchaser: string;
-  obuytiem: number;
+  obuytime: number;
 }

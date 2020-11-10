@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {ConfigserviceService} from './configservice.service';
 import {HttpClient} from '@angular/common/http';
+import {Orderform} from '../model/orderform';
 
 @Injectable()
 export class OrderformService {
@@ -21,5 +22,10 @@ export class OrderformService {
   getOrderListByUser(uname: string) {
     console.log(uname + '.........' + this.getOrderListByUserURL);
     return this.http.post(this.getOrderListByUserURL, {'opurchaser': uname}).toPromise();
+  }
+
+  private createNewOrderURL = this.config.gethost + '/addOrderForm';
+  creatOrderForm(newOrder: Orderform) {
+    return this.http.post(this.createNewOrderURL, newOrder).toPromise();
   }
 }

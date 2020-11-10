@@ -25,7 +25,7 @@ export class UsermanageService {
   }
 
   private addUserURL = this.config.hsot + '/addUser';
-  addUser(user: User){
+  addUser(user: User) {
     let p = {
       'username': user.username,
       'uaddress': user.uaddress,
@@ -35,7 +35,7 @@ export class UsermanageService {
       'upwd': user.upwd,
       'urole': user.urole,
       'uimage': user.uimage
-    }
+    };
     return this.http.post(this.addUserURL, p, this.httpOptions).toPromise();
   }
 
