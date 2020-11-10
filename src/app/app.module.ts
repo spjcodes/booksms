@@ -54,6 +54,9 @@ import {AdminGuard} from './guard/admin.guard';
 import {NavbarComponent} from './pages/navbar/navbar.component';
 import {TestService} from './services/test.service';
 import { PagtestComponent } from './test/pagtest/pagtest.component';
+import { ManageComponent } from './orders/manage/manage.component';
+import {OrderformService} from './services/orderform.service';
+import { OrderComponent } from './manage/order/order.component';
 
 
 export const ROUTES: Routes = [
@@ -71,6 +74,7 @@ export const ROUTES: Routes = [
       {path: 'usermanage', component: UsermanageComponent},
       {path: 'textbookmanage', component: TextbookmanageComponent},
       {path: 'otherbookmanage', component: OtherbookmanageComponent},
+      {path: 'orderManage', component: OrderComponent},
     ] , canActivate: [AdminGuard]
   },
   {path: 'pageone', component: PageoneComponent},
@@ -90,11 +94,12 @@ export const ROUTES: Routes = [
   {path: 'edituser/:id', component: EdituserComponent},
   {path: 'carouseldetail/:id/:type', component: DetailcarouselComponent},
   {path: 'gotoalipay/:id', component: AlipaypageComponent},
+  {path: 'ordermanage/:id', component: ManageComponent},
   {path: 'userinfochange', component: InfomanageComponent},
   {path: 'test', component: PagtestComponent},
   {path: '**', component: PageoneComponent},
 
-]
+];
 
 @NgModule({
   declarations: [
@@ -136,6 +141,8 @@ export const ROUTES: Routes = [
     AlipaypageComponent,
     InfomanageComponent,
     PagtestComponent,
+    ManageComponent,
+    OrderComponent,
   ],
   imports: [
     BrowserModule,
@@ -165,6 +172,7 @@ export const ROUTES: Routes = [
     InterceptorService,
     AdminGuard,
     TestService,
+    OrderformService,
   ],
   bootstrap: [AppComponent]
 })

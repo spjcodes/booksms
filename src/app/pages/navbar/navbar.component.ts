@@ -30,4 +30,14 @@ export class NavbarComponent implements OnInit {
     // alert(keyWorld);
     this.router.navigate(['searchResult', keyWorld]);
   }
+
+  gotoOrders() {
+
+    const uid = localStorage.getItem('userId');
+    if (uid == null) {
+      this.router.navigate(['login']);
+    } else {
+      this.router.navigate(['ordermanage', uid]);
+    }
+  }
 }
