@@ -90,10 +90,12 @@ export class EdituserComponent implements OnInit {
   onUpload() {
     const uploadData = new FormData();
     uploadData.append('uploadfile', this.selectedFile);
-    this.http.post('http://localhost:8081/public/uploadPic', uploadData/*, this.author.renewHttpheaders()*/).subscribe(
+    this.http.post('http://www.jiayeli.cn:8081/public/uploadPic', uploadData/*, this.author.renewHttpheaders()*/).subscribe(
+      // this.http.post('http://lo/calhost:8081/public/uploadPic', uploadData/*, this.author.renewHttpheaders()*/).subscribe(
       (data: any) => {
         if ( data != null) {
-          this.url = 'http://localhost:8081/pic/';
+          this.url = 'http://www.jiayeli.cn:8081/pic/';
+          // this.url = 'http://localhost:8081/pic/';
           this.user.uimage = this.url + data.cimg;
           console.dir(JSON.stringify(data));
           console.dir(this.user.uimage);

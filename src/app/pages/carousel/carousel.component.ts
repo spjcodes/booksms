@@ -25,7 +25,8 @@ export class CarouselComponent implements OnInit {
 }
 
   ngOnInit() {
-    this.src = 'd:/booksmsFiles/';
+    this.src = '/root/projects/booksms/pics/';
+    // this.src = 'd:/booksmsFiles/';
     this.carouselService.getCarosuelList().then((data: any) => {
       this.carousels = data;
       console.dir(data);

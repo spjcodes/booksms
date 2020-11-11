@@ -1,3 +1,55 @@
+<!--<div class="container">-->
+<!--  <div class="card" style="width: 100%;">-->
+<!--    <div class="card-header">-->
+<!--      &lt;!&ndash;      <button  class="btn btn-primary" (click)="add()">新增</button>&ndash;&gt;-->
+<!--      <span  style="text-align:center;width:100%;margin-left: 40%;">订单查看</span>-->
+<!--    </div>-->
+<!--    <table  class="table table-striped">-->
+<!--      <tr >-->
+<!--        <td>主键</td>-->
+<!--        <td>名称</td>-->
+<!--        <td>价格</td>-->
+<!--        <td>买家id</td>-->
+<!--        &lt;!&ndash;        <td>作者</td>&ndash;&gt;-->
+<!--        <td>购买时间</td>-->
+<!--        <td>操作</td>-->
+<!--      </tr>-->
+<!--      <tr *ngFor="let o of orders">-->
+<!--        <td >-->
+<!--          {{o.oid}}-->
+<!--        </td><td >-->
+<!--        {{o.obook}}-->
+<!--      </td><td >-->
+<!--        {{o.ocost}}-->
+<!--      </td><td >-->
+<!--        {{o.opurchaser}}-->
+<!--      </td><td >-->
+<!--        &lt;!&ndash;        {{o.ovendor}}&ndash;&gt;-->
+<!--      </td><td >-->
+<!--        {{o.obuytiem}}-->
+<!--      </td>-->
+<!--        &lt;!&ndash;  <td>-->
+<!--            <button class="btn btn-warning" (click)="update(n.bid)">修改</button>-->
+<!--            <button class="btn btn-danger" (click)="delete(n.bid)">删除</button>-->
+<!--            <button class="btn btn-info" (click)="detail(n.bid)">预览</button>-->
+<!--          </td>&ndash;&gt;-->
+<!--        <td>-->
+<!--          <button class="btn btn-danger" (click)="delete(o.oid)">删除订单</button>-->
+<!--        </td>-->
+<!--      </tr>-->
+<!--    </table>-->
+
+<!--    &lt;!&ndash; <nav aria-label="Page navigation example" style="float:right; margin:0px;padding: 0px;">-->
+<!--       <ul class="pagination" style="float: right;">-->
+<!--         <li class="page-item"><a class="page-link" href="#">Previous</a></li>-->
+<!--         <li class="page-item"><a class="page-link" href="#">1</a></li>-->
+<!--         <li class="page-item"><a class="page-link" href="#">2</a></li>-->
+<!--         <li class="page-item"><a class="page-link" href="#">3</a></li>-->
+<!--         <li class="page-item"><a class="page-link" href="#">Next</a></li>-->
+<!--       </ul>-->
+<!--     </nav>&ndash;&gt;-->
+<!--  </div>-->
+<!--</div>-->
 <div class="container">
   <div class="card" style="width: 100%;">
     <div class="card-header">
@@ -10,8 +62,8 @@
         <td>名称</td>
         <td>价格</td>
         <td>买家id</td>
-        <!--        <td>作者</td>-->
-        <td>购买时间</td>
+        <td>联系电话</td>
+        <td>下单时间</td>
         <td>操作</td>
       </tr>
       <tr *ngFor="let o of orders">
@@ -24,9 +76,9 @@
       </td><td >
         {{o.opurchaser}}
       </td><td >
-        <!--        {{o.ovendor}}-->
+        {{o.ovendor}}
       </td><td >
-        {{o.obuytiem}}
+        {{o.obuytime | date:'yyyy-MM-dd HH:mm'}}
       </td>
         <!--  <td>
             <button class="btn btn-warning" (click)="update(n.bid)">修改</button>

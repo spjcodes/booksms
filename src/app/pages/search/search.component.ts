@@ -9,7 +9,7 @@ import {Book} from '../../model/book';
   styleUrls: ['./search.component.css']
 })
 export class SearchComponent implements OnInit {
-  private bookList: Array<Book>;
+  bookList: Array<Book>;
 
   constructor(private router: Router, private bookSer: BookmanageService, private routerInfo: ActivatedRoute) {
 

@@ -20,7 +20,10 @@ export class RegisterComponent implements OnInit {
     this.u = new User();
   }
 
-  onRegiest(value: any) {
+  onRegiest(value: User) {
+    value.ugrade = '1';
+    value.udiscounts = 0;
+    value.urole = 'user';
     this.userService.addUser(value).then((flage: any) => {
       if (flage) {
         this.router.navigate(['login']);

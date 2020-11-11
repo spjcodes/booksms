@@ -63,7 +63,8 @@ export class UsermanageService {
     return this.http.post(this.updateUserURL, p, this.httpOptions).toPromise();
   }
 
-  private getUserURL = 'http://localhost:8081/public/getUser';
+  private getUserURL = 'http://www.jiayeli.cn:8081/public/getUser';
+  // private getUserURL = 'http://localhost:8081/public/getUser';
    getUser(id: string) {
      const p =  {
        'uid': id.toString()

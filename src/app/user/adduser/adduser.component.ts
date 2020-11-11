@@ -94,10 +94,12 @@ console.dir('hello world ' + this.parm);
   onUpload() {
     const uploadData = new FormData();
     uploadData.append('uploadfile', this.selectedFile);
-    this.http.post('http://localhost:8081/manage/uploadPic', uploadData, this.author.renewHttpheaders()).subscribe(
+    this.http.post('http://www.jiayeli.cn:8081/manage/uploadPic', uploadData, this.author.renewHttpheaders()).subscribe(
+    // this.http.post('http://localhost:8081/manage/uploadPic', uploadData, this.author.renewHttpheaders()).subscribe(
       (data: any) => {
         if ( data != null) {
-          this.url = 'http://localhost:8081/pic/';
+          this.url = 'http://www.jiayeli.cn:8081/pic/';
+          // this.url = 'http://localhost:8081/pic/';
           this.user.uimage = this.url + data.cimg;
           console.dir(JSON.stringify(data));
           console.dir(this.user.uimage);
